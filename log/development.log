@@ -22,3 +22,1427 @@ Migrating to DeviseCreateUsers (20241113125338)
   [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:06:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 211)
+  Rendered shared/_navbar.html.erb (Duration: 3.1ms | Allocations: 892)
+  Rendered shared/_flashes.html.erb (Duration: 0.7ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 12926.6ms | Allocations: 213787)
+Completed 200 OK in 13073ms (Views: 12945.0ms | ActiveRecord: 0.0ms | Allocations: 224758)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:09:57 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 140.0ms | Allocations: 45369)
+  Rendered shared/_navbar.html.erb (Duration: 3.2ms | Allocations: 758)
+  Rendered shared/_flashes.html.erb (Duration: 1.1ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 259.1ms | Allocations: 76814)
+Completed 200 OK in 263ms (Views: 261.3ms | ActiveRecord: 0.0ms | Allocations: 78227)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:10:43 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 130)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 715)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 9266.7ms | Allocations: 91755)
+Completed 200 OK in 9271ms (Views: 9268.8ms | ActiveRecord: 0.0ms | Allocations: 93166)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+sprockets (4.2.1) lib/sprockets/server.rb:117:in `extname'
+sprockets (4.2.1) lib/sprockets/server.rb:117:in `rescue in call'
+sprockets (4.2.1) lib/sprockets/server.rb:37:in `call'
+actionpack (7.1.5) lib/action_dispatch/routing/mapper.rb:31:in `block in <class:Constraints>'
+actionpack (7.1.5) lib/action_dispatch/routing/mapper.rb:60:in `serve'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.5) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.5) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.5) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:15:in `block in call'
+activesupport (7.1.5) lib/active_support/logger_silence.rb:18:in `block in silence'
+activesupport (7.1.5) lib/active_support/logger_thread_safe_level.rb:45:in `log_at'
+activesupport (7.1.5) lib/active_support/logger_silence.rb:18:in `silence'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:15:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5) lib/rails/engine.rb:536:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:11:18 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 193)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 9179.2ms | Allocations: 75633)
+Completed 200 OK in 9181ms (Views: 9180.1ms | ActiveRecord: 0.0ms | Allocations: 75994)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+sprockets (4.2.1) lib/sprockets/server.rb:117:in `extname'
+sprockets (4.2.1) lib/sprockets/server.rb:117:in `rescue in call'
+sprockets (4.2.1) lib/sprockets/server.rb:37:in `call'
+actionpack (7.1.5) lib/action_dispatch/routing/mapper.rb:31:in `block in <class:Constraints>'
+actionpack (7.1.5) lib/action_dispatch/routing/mapper.rb:60:in `serve'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.5) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.5) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.5) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:15:in `block in call'
+activesupport (7.1.5) lib/active_support/logger_silence.rb:18:in `block in silence'
+activesupport (7.1.5) lib/active_support/logger_thread_safe_level.rb:45:in `log_at'
+activesupport (7.1.5) lib/active_support/logger_silence.rb:18:in `silence'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:15:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5) lib/rails/engine.rb:536:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:11:57 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 17054.2ms | Allocations: 78143)
+Completed 200 OK in 17062ms (Views: 17060.9ms | ActiveRecord: 0.0ms | Allocations: 78465)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:12:39 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 16904.6ms | Allocations: 80423)
+Completed 200 OK in 16908ms (Views: 16907.1ms | ActiveRecord: 0.0ms | Allocations: 80739)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/OIG3.jpeg"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:13:10 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 191)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 55.3ms | Allocations: 8157)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 8515)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/OIG3.jpeg"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-13 10:13:29 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9969.7ms | Allocations: 80366)
+Completed 200 OK in 9972ms (Views: 9971.0ms | ActiveRecord: 0.0ms | Allocations: 80682)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 10:14:15 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 679)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 113.2ms | Allocations: 27716)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 149)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 127.2ms | Allocations: 35946)
+Completed 200 OK in 203ms (Views: 130.0ms | ActiveRecord: 21.2ms | Allocations: 61015)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 10:14:22 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.0ms | Allocations: 8364)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 40.9ms | Allocations: 16226)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.0ms | Allocations: 17068)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:12:21 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9508.3ms | Allocations: 81297)
+Completed 200 OK in 9515ms (Views: 9514.3ms | ActiveRecord: 0.0ms | Allocations: 81614)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:24:57 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9692.4ms | Allocations: 81077)
+Completed 200 OK in 9695ms (Views: 9693.6ms | ActiveRecord: 0.0ms | Allocations: 81393)
+
+
+Started GET "/OIG2.biRAOT.jpeg" for 127.0.0.1 at 2024-11-13 11:25:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/OIG2.biRAOT.jpeg"):
+  
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:25:19 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9572.3ms | Allocations: 81145)
+Completed 200 OK in 9574ms (Views: 9573.2ms | ActiveRecord: 0.0ms | Allocations: 81461)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:26:20 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9745.2ms | Allocations: 81622)
+Completed 200 OK in 9748ms (Views: 9747.4ms | ActiveRecord: 0.0ms | Allocations: 81938)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:27:00 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9593.7ms | Allocations: 81711)
+Completed 200 OK in 9597ms (Views: 9595.3ms | ActiveRecord: 0.0ms | Allocations: 82027)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:27:35 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 16372.1ms | Allocations: 80441)
+Completed 200 OK in 16376ms (Views: 16374.0ms | ActiveRecord: 0.0ms | Allocations: 80757)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:28:18 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 17173.7ms | Allocations: 81415)
+Completed 200 OK in 17176ms (Views: 17174.8ms | ActiveRecord: 0.0ms | Allocations: 81731)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:28:52 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9543.7ms | Allocations: 80853)
+Completed 200 OK in 9546ms (Views: 9545.0ms | ActiveRecord: 0.0ms | Allocations: 81169)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:33:22 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 8121)
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 8437)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:34:12 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9493.9ms | Allocations: 80842)
+Completed 200 OK in 9495ms (Views: 9494.6ms | ActiveRecord: 0.0ms | Allocations: 81158)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 11:34:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 8142)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 8458)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 15:28:37 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 11702.4ms | Allocations: 80673)
+Completed 200 OK in 11704ms (Views: 11703.3ms | ActiveRecord: 0.0ms | Allocations: 80989)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 15:29:03 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9425.9ms | Allocations: 80436)
+Completed 200 OK in 9429ms (Views: 9427.4ms | ActiveRecord: 0.0ms | Allocations: 80752)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 15:29:26 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9457.8ms | Allocations: 80372)
+Completed 200 OK in 9459ms (Views: 9458.6ms | ActiveRecord: 0.0ms | Allocations: 80688)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 15:29:45 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9581.1ms | Allocations: 80829)
+Completed 200 OK in 9584ms (Views: 9582.7ms | ActiveRecord: 0.0ms | Allocations: 81145)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 15:35:42 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 2.3ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 12770.7ms | Allocations: 80648)
+Completed 200 OK in 12776ms (Views: 12772.9ms | ActiveRecord: 0.0ms | Allocations: 80964)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:03:15 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 2.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 1.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 20629.4ms | Allocations: 80656)
+Completed 200 OK in 20636ms (Views: 20633.2ms | ActiveRecord: 0.0ms | Allocations: 80986)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:12:18 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 9693.7ms | Allocations: 80713)
+Completed 200 OK in 9696ms (Views: 9694.9ms | ActiveRecord: 0.0ms | Allocations: 81029)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:27:17 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 19867.2ms | Allocations: 81791)
+Completed 200 OK in 19871ms (Views: 19868.2ms | ActiveRecord: 0.0ms | Allocations: 82107)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:28:05 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 19680.4ms | Allocations: 80425)
+Completed 200 OK in 19687ms (Views: 19684.6ms | ActiveRecord: 0.0ms | Allocations: 80741)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:30:12 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3554.2ms | Allocations: 31943)
+Completed 500 Internal Server Error in 3556ms (ActiveRecord: 0.0ms | Allocations: 32273)
+
+
+  
+ActionView::Template::Error (Error: Invalid CSS after "...und-size: width": expected "}", was ": 100%;"
+        on line 4:22 of app/assets/stylesheets/pages/_home.scss
+        from line 2:1 of app/assets/stylesheets/pages/_index.scss
+        from line 12:1 of app/assets/stylesheets/application.scss
+>>     background-size: width: 100%;
+
+   ---------------------^
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:30:46 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 3588.4ms | Allocations: 31968)
+Completed 500 Internal Server Error in 3591ms (ActiveRecord: 0.0ms | Allocations: 32277)
+
+
+  
+ActionView::Template::Error (Error: property "width" must be followed by a ':'
+        on line 4:5 of app/assets/stylesheets/pages/_home.scss
+        from line 2:1 of app/assets/stylesheets/pages/_index.scss
+        from line 12:1 of app/assets/stylesheets/application.scss
+>>     width 100%;
+
+   ----^
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:31:15 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 130)
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 715)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 22134.4ms | Allocations: 101065)
+Completed 200 OK in 22153ms (Views: 22144.6ms | ActiveRecord: 0.0ms | Allocations: 102472)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:32:40 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 104.8ms | Allocations: 8139)
+Completed 200 OK in 107ms (Views: 106.0ms | ActiveRecord: 0.0ms | Allocations: 8471)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:32:49 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 8126)
+Completed 200 OK in 71ms (Views: 70.2ms | ActiveRecord: 0.0ms | Allocations: 8442)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:33:09 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 21372.9ms | Allocations: 80913)
+Completed 200 OK in 21379ms (Views: 21375.8ms | ActiveRecord: 0.0ms | Allocations: 81229)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:35:50 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 80.4ms | Allocations: 8150)
+Completed 200 OK in 84ms (Views: 82.8ms | ActiveRecord: 0.0ms | Allocations: 8466)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:36:02 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 21048.4ms | Allocations: 80924)
+Completed 200 OK in 21054ms (Views: 21052.1ms | ActiveRecord: 0.0ms | Allocations: 81240)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:36:51 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 20769.5ms | Allocations: 80317)
+Completed 200 OK in 20772ms (Views: 20770.7ms | ActiveRecord: 0.0ms | Allocations: 80633)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 16:37:23 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 24427.2ms | Allocations: 80321)
+Completed 200 OK in 24429ms (Views: 24428.2ms | ActiveRecord: 0.0ms | Allocations: 80637)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 16:37:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 86.2ms | Allocations: 9393)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 149)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 149.7ms | Allocations: 17573)
+Completed 200 OK in 223ms (Views: 158.8ms | ActiveRecord: 17.5ms | Allocations: 25601)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 16:37:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 61.2ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 110)
+  Rendered shared/_flashes.html.erb (Duration: 0.8ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 129.5ms | Allocations: 16179)
+Completed 200 OK in 146ms (Views: 139.9ms | ActiveRecord: 0.0ms | Allocations: 16992)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:15:16 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 18125.5ms | Allocations: 81437)
+Completed 200 OK in 18130ms (Views: 18127.8ms | ActiveRecord: 0.0ms | Allocations: 81754)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:18:03 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 21577.6ms | Allocations: 80653)
+Completed 200 OK in 21587ms (Views: 21583.7ms | ActiveRecord: 0.0ms | Allocations: 80969)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:20:27 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 21519.6ms | Allocations: 80618)
+Completed 200 OK in 21521ms (Views: 21520.5ms | ActiveRecord: 0.0ms | Allocations: 80935)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:39:04 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 134)
+  Rendered shared/_navbar.html.erb (Duration: 87.1ms | Allocations: 48476)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 9816.1ms | Allocations: 149225)
+Completed 200 OK in 9819ms (Views: 9818.1ms | ActiveRecord: 0.0ms | Allocations: 150632)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:45:25 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 12.5ms | Allocations: 838)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 51.9ms | Allocations: 8857)
+Completed 200 OK in 55ms (Views: 53.6ms | ActiveRecord: 0.0ms | Allocations: 9189)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 17:51:37 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 13.8ms | Allocations: 1549)
+  Rendered shared/_flashes.html.erb (Duration: 0.9ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 77.3ms | Allocations: 9554)
+Completed 200 OK in 87ms (Views: 82.4ms | ActiveRecord: 0.0ms | Allocations: 9870)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 17:53:19 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 79.9ms | Allocations: 9392)
+  Rendered shared/_navbar.html.erb (Duration: 10.4ms | Allocations: 569)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 144.7ms | Allocations: 17908)
+Completed 200 OK in 274ms (Views: 165.2ms | ActiveRecord: 25.8ms | Allocations: 25960)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 17:58:54 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 7.5ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 37.3ms | Allocations: 9378)
+  Rendered shared/_navbar.html.erb (Duration: 2.2ms | Allocations: 1043)
+  Rendered shared/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 112.4ms | Allocations: 37869)
+Completed 200 OK in 165ms (Views: 122.9ms | ActiveRecord: 11.0ms | Allocations: 46117)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 17:59:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.4ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 62.9ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 13.3ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 134.3ms | Allocations: 16594)
+Completed 200 OK in 142ms (Views: 138.4ms | ActiveRecord: 0.0ms | Allocations: 17404)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:00:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 55.8ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 2.5ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 115.8ms | Allocations: 16598)
+Completed 200 OK in 121ms (Views: 118.6ms | ActiveRecord: 0.0ms | Allocations: 17283)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:01:01 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 69.4ms | Allocations: 9377)
+  Rendered shared/_navbar.html.erb (Duration: 9.8ms | Allocations: 1047)
+  Rendered shared/_flashes.html.erb (Duration: 4.2ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 264.8ms | Allocations: 37874)
+Completed 200 OK in 331ms (Views: 284.2ms | ActiveRecord: 13.4ms | Allocations: 43788)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:01:25 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.0ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 52.1ms | Allocations: 9392)
+  Rendered shared/_navbar.html.erb (Duration: 7.8ms | Allocations: 1043)
+  Rendered shared/_flashes.html.erb (Duration: 2.1ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 193.4ms | Allocations: 37847)
+Completed 200 OK in 241ms (Views: 202.6ms | ActiveRecord: 11.1ms | Allocations: 43781)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:01:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 36.1ms | Allocations: 8312)
+  Rendered shared/_navbar.html.erb (Duration: 7.0ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 93.2ms | Allocations: 16595)
+Completed 200 OK in 96ms (Views: 94.1ms | ActiveRecord: 0.0ms | Allocations: 17414)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:01:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.6ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 36.9ms | Allocations: 9377)
+  Rendered shared/_navbar.html.erb (Duration: 9.7ms | Allocations: 1046)
+  Rendered shared/_flashes.html.erb (Duration: 2.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 185.2ms | Allocations: 37862)
+Completed 200 OK in 219ms (Views: 188.5ms | ActiveRecord: 9.3ms | Allocations: 43735)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:07:46 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 34.3ms | Allocations: 9385)
+  Rendered shared/_navbar.html.erb (Duration: 2.5ms | Allocations: 1043)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 132.5ms | Allocations: 37905)
+Completed 200 OK in 186ms (Views: 139.7ms | ActiveRecord: 11.4ms | Allocations: 46169)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:09:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 54.5ms | Allocations: 8313)
+  Rendered shared/_navbar.html.erb (Duration: 10.5ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 133.5ms | Allocations: 16599)
+Completed 200 OK in 139ms (Views: 135.3ms | ActiveRecord: 0.0ms | Allocations: 17413)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:12:42 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 40.0ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 529)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 11027.0ms | Allocations: 80596)
+Completed 200 OK in 11032ms (Views: 11028.5ms | ActiveRecord: 0.0ms | Allocations: 81291)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:13:45 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 38.6ms | Allocations: 8319)
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 82.4ms | Allocations: 16642)
+Completed 200 OK in 87ms (Views: 83.9ms | ActiveRecord: 0.0ms | Allocations: 17333)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:13:46 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 32.4ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 59.5ms | Allocations: 16592)
+Completed 200 OK in 64ms (Views: 60.8ms | ActiveRecord: 0.0ms | Allocations: 17298)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-11-13 18:13:50 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 156)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 21.5ms | Allocations: 4211)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 12651)
+Completed 200 OK in 41ms (Views: 37.8ms | ActiveRecord: 0.0ms | Allocations: 13746)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-11-13 18:13:50 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 87)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 6889)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 539)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 15301)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 16447)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-11-13 18:13:51 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 124)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3279)
+  Rendered shared/_navbar.html.erb (Duration: 2.8ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 11566)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.0ms | Allocations: 12191)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-11-13 18:13:51 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 124)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3278)
+  Rendered shared/_navbar.html.erb (Duration: 3.7ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 11565)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.0ms | Allocations: 12183)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-11-13 18:13:53 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 77)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 6349)
+  Rendered shared/_navbar.html.erb (Duration: 2.7ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 14636)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.0ms | Allocations: 15278)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-11-13 18:13:53 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 124)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 14.9ms | Allocations: 3276)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 11563)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.0ms | Allocations: 12196)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:19 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 33.0ms | Allocations: 9393)
+  Rendered shared/_navbar.html.erb (Duration: 8.2ms | Allocations: 2658)
+  Rendered layout layouts/application.html.erb (Duration: 99.9ms | Allocations: 39156)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 11.2ms | Allocations: 47452)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "#":String):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:   <div class="container-fluid">
+    3:     <%= link_to "Home", "#", class: "navbar-brand" do %>
+    4:       <%= image_tag "1.png" %>
+    5:     <% end %>
+    6: 
+  
+app/views/shared/_navbar.html.erb:3
+app/views/layouts/application.html.erb:13
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:47 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 34.0ms | Allocations: 9392)
+  Rendered shared/_navbar.html.erb (Duration: 4.0ms | Allocations: 1043)
+  Rendered shared/_flashes.html.erb (Duration: 1.2ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 111.4ms | Allocations: 37880)
+Completed 200 OK in 144ms (Views: 114.4ms | ActiveRecord: 10.0ms | Allocations: 43829)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 23.1ms | Allocations: 8319)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 16606)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.0ms | Allocations: 17416)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:50 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 37.4ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 1.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | Allocations: 16594)
+Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 0.0ms | Allocations: 17294)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:50 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 41.1ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 4.5ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 72.2ms | Allocations: 16594)
+Completed 200 OK in 78ms (Views: 74.8ms | ActiveRecord: 0.0ms | Allocations: 17297)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 28.2ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 46.1ms | Allocations: 16594)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.0ms | Allocations: 17307)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.8ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 16592)
+Completed 200 OK in 58ms (Views: 55.8ms | ActiveRecord: 0.0ms | Allocations: 17286)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.6ms | Allocations: 8310)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 529)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 62.5ms | Allocations: 16594)
+Completed 200 OK in 69ms (Views: 64.0ms | ActiveRecord: 0.0ms | Allocations: 17306)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 35.7ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 4.5ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 74.2ms | Allocations: 16595)
+Completed 200 OK in 81ms (Views: 77.8ms | ActiveRecord: 0.0ms | Allocations: 17307)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:52 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 113.2ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 529)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 175.2ms | Allocations: 16596)
+Completed 200 OK in 193ms (Views: 178.1ms | ActiveRecord: 0.0ms | Allocations: 17303)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:52 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 46.3ms | Allocations: 8326)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 67.0ms | Allocations: 16610)
+Completed 200 OK in 71ms (Views: 68.2ms | ActiveRecord: 0.0ms | Allocations: 17325)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.1ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 16595)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.0ms | Allocations: 17293)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:15:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 27.6ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 44.2ms | Allocations: 16592)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.0ms | Allocations: 17277)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:17:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 33.7ms | Allocations: 9379)
+  Rendered shared/_navbar.html.erb (Duration: 11.2ms | Allocations: 5018)
+  Rendered layout layouts/application.html.erb (Duration: 105.4ms | Allocations: 41502)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 8.9ms | Allocations: 47423)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x000000000417a8>):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:   <div class="container-fluid">
+    3:     <%= link_to "Home", home_path, class: "navbar-brand" do %> "Login", new_user_session_path
+    4:       <%= image_tag "1.png" %>
+    5:     <% end %>
+    6: 
+  
+app/views/shared/_navbar.html.erb:3
+app/views/layouts/application.html.erb:13
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:17:12 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 43.6ms | Allocations: 9393)
+  Rendered shared/_navbar.html.erb (Duration: 35.1ms | Allocations: 4983)
+  Rendered layout layouts/application.html.erb (Duration: 230.2ms | Allocations: 41485)
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 8.4ms | Allocations: 47406)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_path' for #<ActionView::Base:0x00000000045bf0>):
+    1: <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    2:   <div class="container-fluid">
+    3:     <%= link_to "Home", home_path, class: "navbar-brand" do %> 
+    4:     <% end %>
+    5: 
+    6:     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+app/views/shared/_navbar.html.erb:3
+app/views/layouts/application.html.erb:13
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 608)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 26.3ms | Allocations: 9394)
+  Rendered shared/_navbar.html.erb (Duration: 2.7ms | Allocations: 1094)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 72.7ms | Allocations: 37944)
+Completed 200 OK in 100ms (Views: 81.2ms | ActiveRecord: 6.9ms | Allocations: 43887)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:28 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 35.7ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 16615)
+Completed 200 OK in 65ms (Views: 59.6ms | ActiveRecord: 0.0ms | Allocations: 17440)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:31 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 36.1ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 16615)
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 0.0ms | Allocations: 17318)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 40.4ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 16615)
+Completed 200 OK in 64ms (Views: 62.2ms | ActiveRecord: 0.0ms | Allocations: 17309)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.4ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 16613)
+Completed 200 OK in 46ms (Views: 43.4ms | ActiveRecord: 0.0ms | Allocations: 17325)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 16613)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.0ms | Allocations: 17328)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.2ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 3.3ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 52.0ms | Allocations: 16613)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.0ms | Allocations: 17335)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:18:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 45.8ms | Allocations: 8319)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 549)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 66.5ms | Allocations: 16624)
+Completed 200 OK in 69ms (Views: 67.3ms | ActiveRecord: 0.0ms | Allocations: 17319)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 18:18:36 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 133)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 674)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 9074)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 10184)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 18:19:25 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 130)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 1494)
+  Rendered layout layouts/application.html.erb (Duration: 52.7ms | Allocations: 29087)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms | Allocations: 30524)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "Home", root_path,, class: "navbar-brand" do %> 
+      <%= image_tag "1.png" %>
+    <% end %>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+):
+1:    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+2:      <div class="container-fluid">
+3:        <%= link_to "Home", root_path,, class: "navbar-brand" do %> 
+4:          <%= image_tag "1.png" %>
+5:        <% end %>
+6:        
+7:        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+8:          <span class="navbar-toggler-icon"></span>
+9:        </button>
+10:    
+11:        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+12:          <ul class="navbar-nav me-auto">
+13:            <% if user_signed_in? %>
+14:              <li class="nav-item active">
+15:                <%= link_to "Home", "#", class: "nav-link" %>
+16:              </li>
+17:              <li class="nav-item">
+18:                <%= link_to "Messages", "#", class: "nav-link" %>
+19:              </li>
+20:              <li class="nav-item dropdown">
+21:              <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+22:                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+23:              </a>
+24:                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+25:                  <%= link_to "Action", "#", class: "dropdown-item" %>
+26:                  <%= link_to "Another action", "#", class: "dropdown-item" %>
+27:                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+28:                </div>
+29:              </li>
+30:            <% else %>
+31:              <li class="nav-item">
+32:                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+33:              </li>
+34:            <% end %>
+35:          </ul>
+36:        </div>
+37:      </div>
+38:    </div>
+  
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected ','
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected `do' for block, expecting `end'
+app/views/shared/_navbar.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:13
+Started GET "/" for 127.0.0.1 at 2024-11-13 18:20:47 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 130)
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 1140)
+  Rendered shared/_flashes.html.erb (Duration: 1.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 29058)
+Completed 200 OK in 73ms (Views: 72.0ms | ActiveRecord: 0.0ms | Allocations: 30463)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:20:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.9ms | Allocations: 9391)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 577)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 17911)
+Completed 200 OK in 79ms (Views: 44.3ms | ActiveRecord: 8.3ms | Allocations: 23541)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:20:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 8309)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 534)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 16598)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.0ms | Allocations: 17417)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 18:20:51 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 579)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 8538)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 8855)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-13 18:20:52 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 34.6ms | Allocations: 8311)
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 534)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | Allocations: 16600)
+Completed 200 OK in 68ms (Views: 61.0ms | ActiveRecord: 0.0ms | Allocations: 17294)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-13 18:20:54 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 579)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 8556)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms | Allocations: 8873)
+
+
