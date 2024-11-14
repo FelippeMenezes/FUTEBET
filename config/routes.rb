@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'seasons/index'
+  get 'seasons/show'
+  get 'seasons/create'
+  get 'seasons/update'
+  get 'seasons/delete'
+  get 'matches/index'
+  get 'matches/show'
+  get 'matches/create'
+  get 'matches/update'
+  get 'matches/delete'
+  get 'players/index'
+  get 'players/show'
+  get 'players/create'
+  get 'players/update'
+  get 'players/delete'
+  get 'teams/index'
+  get 'teams/show'
+  get 'teams/create'
+  get 'teams/update'
+  get 'teams/delete'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
