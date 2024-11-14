@@ -1586,3 +1586,23 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 73ms (Views: 71.9ms | ActiveRecord: 0.0ms | Allocations: 30461)
 
 
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for 127.0.0.1 at 2024-11-14 18:15:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 211)
+  Rendered shared/_navbar.html.erb (Duration: 4.2ms | Allocations: 1375)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 247)
+  Rendered layout layouts/application.html.erb (Duration: 269.4ms | Allocations: 71967)
+Completed 200 OK in 317ms (Views: 282.6ms | ActiveRecord: 0.0ms | Allocations: 79143)
+
+
