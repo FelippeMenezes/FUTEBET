@@ -1822,3 +1822,133 @@ Migrating to AddTeamsToMatches (20241114225502)
   [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/teams/1" for 127.0.0.1 at 2024-11-15 13:58:26 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/teams/show.html.erb:8
+  Rendered teams/show.html.erb within layouts/application (Duration: 71.2ms | Allocations: 21205)
+  Rendered shared/_navbar.html.erb (Duration: 2.7ms | Allocations: 1562)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 308.4ms | Allocations: 90616)
+Completed 200 OK in 764ms (Views: 315.9ms | ActiveRecord: 29.2ms | Allocations: 438000)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-15 13:59:51 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (38.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:11
+  Rendered teams/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1142)
+  Rendered shared/_navbar.html.erb (Duration: 3.3ms | Allocations: 998)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | Allocations: 10045)
+Completed 200 OK in 90ms (Views: 46.0ms | ActiveRecord: 38.7ms | Allocations: 12233)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2024-11-15 14:00:06 -0300
+Processing by TeamsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/new.html.erb within layouts/application (Duration: 41.8ms | Allocations: 4103)
+  Rendered shared/_navbar.html.erb (Duration: 4.0ms | Allocations: 996)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 13019)
+Completed 200 OK in 101ms (Views: 77.3ms | ActiveRecord: 0.6ms | Allocations: 14942)
+
+
+Started POST "/teams" for 127.0.0.1 at 2024-11-15 14:00:18 -0300
+Processing by TeamsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "team"=>{"name"=>"Flamingo"}, "commit"=>"Salvar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+  [1m[36mTeam Create (6.1ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Flamingo"], ["created_at", "2024-11-15 17:00:18.200015"], ["updated_at", "2024-11-15 17:00:18.200015"]]
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (76.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/teams
+Completed 302 Found in 103ms (ActiveRecord: 84.1ms | Allocations: 5551)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-15 14:00:18 -0300
+Processing by TeamsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:11
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 849)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 998)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 9790)
+Completed 200 OK in 29ms (Views: 24.2ms | ActiveRecord: 0.9ms | Allocations: 11680)
+
+
+Started GET "/teams/5" for 127.0.0.1 at 2024-11-15 14:00:20 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 5]]
+  ↳ app/views/teams/show.html.erb:8
+  Rendered teams/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 788)
+  Rendered shared/_navbar.html.erb (Duration: 5.0ms | Allocations: 987)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | Allocations: 9544)
+Completed 200 OK in 52ms (Views: 40.4ms | ActiveRecord: 2.0ms | Allocations: 11955)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-15 14:00:22 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:11
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 823)
+  Rendered shared/_navbar.html.erb (Duration: 6.3ms | Allocations: 987)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 9584)
+Completed 200 OK in 38ms (Views: 29.1ms | ActiveRecord: 0.8ms | Allocations: 11395)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-15 14:00:26 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:11
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 823)
+  Rendered shared/_navbar.html.erb (Duration: 11.3ms | Allocations: 987)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 9583)
+Completed 200 OK in 46ms (Views: 38.9ms | ActiveRecord: 0.7ms | Allocations: 11367)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2024-11-15 14:00:27 -0300
+Processing by TeamsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 415)
+  Rendered shared/_navbar.html.erb (Duration: 5.6ms | Allocations: 987)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 9164)
+Completed 200 OK in 33ms (Views: 25.5ms | ActiveRecord: 1.4ms | Allocations: 10974)
+
+
