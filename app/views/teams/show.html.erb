@@ -6,7 +6,7 @@
 <h2>Jogadores</h2>
 <ul>
   <% @players.each do |player| %>
-    <li><%= player.name %> - <%= player.position %></li>
+    <li><%= player.name %> - <%= player.position %> - <%=player.skill_level %></li>
   <% end %>
 </ul>
 

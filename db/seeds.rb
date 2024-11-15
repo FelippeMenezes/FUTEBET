@@ -9,40 +9,25 @@
 #   end
 require 'faker'
 
-# Create 4 teams
-teams = 4.times.map do
-  Team.find_or_create_by!(name: Faker::Sports::Football.team)
-end
+# Create 4 teams with 11 players (1 Goalkeeper, 4 Defenders, 3 Midfielders, 3 Forwards)
+4.times do |team_index|
+  team = Team.create!(name: Faker::Sports::Football.team)
 
-# Create players for each team
-teams.each do |team|
-  # Create 1 goalkeeper
-  Player.find_or_create_by!(name: Faker::Name.name, 
-    skill_level: rand(5..10),
-    position: 'Goalkeeper',
-    team: team)
+  # Create 1 Goalkeeper
+  Player.create!(name: Faker::Sports::Football.player, position: 'Goalkeeper', team: team, skill_level: rand(5..10))
 
-  # Create 4 defenders
+  # Create 4 Defenders
   4.times do
-    Player.find_or_create_by!(name: Faker::Name.name, 
-      skill_level: rand(5..10),
-      position: 'Defender',
-      team: team)
+    Player.create!(name: Faker::Sports::Football.player, position: 'Defender', team: team, skill_level: rand(5..10))
   end
 
-  # Create 3 midfielders
+  # Create 3 Midfielders
   3.times do
-    Player.find_or_create_by!(name: Faker::Name.name, 
-      skill_level: rand(5..10),
-      position: 'Midfielder',
-      team: team)
+    Player.create!(name: Faker::Sports::Football.player, position: 'Midfielder', team: team, skill_level: rand(5..10))
   end
 
-  # Create 3 forwards
+  # Create 3 Forwards
   3.times do
-    Player.find_or_create_by!(name: Faker::Name.name, 
-      skill_level: rand(5..10),
-      position: 'Forward',
-      team: team)
+    Player.create!(name: Faker::Sports::Football.player, position: 'Forward', team: team, skill_level: rand(5..10))
   end
 end

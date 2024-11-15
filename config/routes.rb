@@ -21,7 +21,13 @@ Rails.application.routes.draw do
   get 'teams/delete'
   devise_for :users
   resources :teams
-  root to: "teams#index"
+  root to: "pages#home"
+
+  # Redireciona para a página teams/index após efetuar o login
+  authenticated :user do
+    root to: 'teams#index', as: :authenticated_root
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
