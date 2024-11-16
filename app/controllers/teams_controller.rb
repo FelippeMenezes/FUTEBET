@@ -26,7 +26,12 @@ class TeamsController < ApplicationController
 
   def update_players
     @team = Team.find(params[:id])
-    @team.player_ids = params[:team][:player_ids]
+    if params[:team] && params[:team][:player_ids]
+      @team.player_ids = (@team.player_ids + params[:team][:player_ids]).uniq
+    else
+      redirect_to @team, alert: 'Nenhum jogador selecionado.' and return
+    end
+
     if @team.save
       redirect_to @team, notice: 'Jogadores atualizados com sucesso.'
     else
