@@ -16,4 +16,8 @@ class Team < ApplicationRecord
     end
     points
   end
+
+  def created_by_user?
+    user.present?
+  end
 end

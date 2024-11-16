@@ -1,16 +1,15 @@
 <h1>Teams#show</h1>
 <p>Find me in app/views/teams/show.html.erb</p>
 
-<h2>Jogadores</h2>
+<h1><%= @team.name %></h1>
 <ul>
   <% @team.players.each do |player| %>
     <li><%= player.name %> - <%= player.position %> - <%= player.skill_level %></li>
   <% end %>
 </ul>
 
-<h1><%= @team.name %></h1>
 <%= form_with(model: @team, url: update_players_team_path(@team), method: :patch) do |form| %>
-  <h2>Adicionar Jogadores</h2>
+  <h2> Jogadores Disponíveis no Mercado </h2>
   <ul>
     <% Player.all.reject { |player| @team.players.include?(player) }.each do |player| %>
       <li>
@@ -22,4 +21,8 @@
   <%= form.submit "Adicionar Jogadores" %>
 <% end %>
 
+<%= link_to 'Matches', matches_index_path %>
+
 <%= link_to 'Voltar', teams_path %>
+
+

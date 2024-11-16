@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       patch 'update_players', to: 'teams#update_players'
     end
   end
+  resources :matches, only: [:index, :create, :show]
 
   # Redireciona para a página teams/index após efetuar o login
   authenticated :user do
