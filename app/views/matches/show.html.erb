@@ -3,8 +3,8 @@
 
 <h1>Detalhes da Partida</h1>
 
-<div style="display: flex; justify-content: center; align-items: center;">
-    <div style="margin-right: 20px;">
+<div class="match-box">
+    <div class="home-team">
         <%= @match.home_team.name %>
         <ul>
             <% @match.home_team.players.each do |player| %>
@@ -13,7 +13,7 @@
         </ul>
     </div>
     <div><p>Score: <%= @match.home_score %> X Score: <%= @match.away_score %></p></div>
-    <div style="margin-left: 20px;">
+    <div class="away-team">
         <%= @match.away_team.name %>
                 <ul>
             <% @match.away_team.players.each do |player| %>
@@ -22,7 +22,9 @@
         </ul>
     </div>
 </div>
-<div style="margin-top: 20px;">
+<div class="match-button">
     <%= button_to 'Começar partida', simulate_match_path(@match), method: :post, class: 'btn btn-primary' %>
 </div>
 <%= link_to 'Voltar', teams_path %>
+
+<%= image_tag 'match_show.jpeg', class: 'match-show' %>
