@@ -12,7 +12,7 @@ require 'faker'
 # Cria alguns times primeiro
 teams = []
 8.times do |i|
-  teams << Team.create!(name: "Team #{i + 1}")
+  teams << Team.create!(name: Faker::Creature::Animal.name)
 end
 
 # Cria jogadores e associa-os a um time

@@ -18345,3 +18345,986 @@ Processing by MatchesController#show as TURBO_STREAM
 Completed 200 OK in 87ms (Views: 62.2ms | ActiveRecord: 7.1ms | Allocations: 14967)
 
 
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (261.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_development"[0m
+  [1m[35m (483.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_test"[0m
+  [1m[35m (1551.1ms)[0m  [1m[35mCREATE DATABASE "futebet_development" ENCODING = 'unicode'[0m
+  [1m[35m (1521.1ms)[0m  [1m[35mCREATE DATABASE "futebet_test" ENCODING = 'unicode'[0m
+  [1m[35m (162.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (260.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (60.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-16 17:36:17.162748', '2024-11-16 17:36:17.162753') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20241113125338)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (209.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (76.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241113125338') RETURNING "version"[0m
+  [1m[36mTRANSACTION (42.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeams (20241114212330)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (221.0ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (33.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlayers (20241114212818)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (209.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "position" character varying, "skill_level" integer, "team_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (86.7ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (42.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20241114224449)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (172.6ms)[0m  [1m[35mCREATE TABLE "matches" ("id" bigserial primary key, "home_team_id" integer, "away_team_id" integer, "home_score" integer, "away_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_4aed6bdf0d"
+FOREIGN KEY ("home_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_6a75121a9b"
+FOREIGN KEY ("away_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (38.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeasons (20241114224451)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (110.6ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" bigserial primary key, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224451') RETURNING "version"[0m
+  [1m[36mTRANSACTION (42.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToSeasons (20241116122339)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (125.9ms)[0m  [1m[35mALTER TABLE "seasons" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116122339') RETURNING "version"[0m
+  [1m[36mTRANSACTION (45.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTeams (20241116130237)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE INDEX "index_teams_on_user_id" ON "teams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116130237') RETURNING "version"[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (262.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_development"[0m
+  [1m[35m (259.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_test"[0m
+  [1m[35m (790.4ms)[0m  [1m[35mCREATE DATABASE "futebet_development" ENCODING = 'unicode'[0m
+  [1m[35m (1456.6ms)[0m  [1m[35mCREATE DATABASE "futebet_test" ENCODING = 'unicode'[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (120.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (4.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-16 17:36:40.348402', '2024-11-16 17:36:40.348405') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20241113125338)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (107.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (43.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (46.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241113125338') RETURNING "version"[0m
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeams (20241114212330)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlayers (20241114212818)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.7ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "position" character varying, "skill_level" integer, "team_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (65.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20241114224449)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.7ms)[0m  [1m[35mCREATE TABLE "matches" ("id" bigserial primary key, "home_team_id" integer, "away_team_id" integer, "home_score" integer, "away_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_4aed6bdf0d"
+FOREIGN KEY ("home_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_6a75121a9b"
+FOREIGN KEY ("away_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (19.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeasons (20241114224451)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.2ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" bigserial primary key, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224451') RETURNING "version"[0m
+  [1m[36mTRANSACTION (19.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToSeasons (20241116122339)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.7ms)[0m  [1m[35mALTER TABLE "seasons" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116122339') RETURNING "version"[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTeams (20241116130237)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35m (49.2ms)[0m  [1m[35mCREATE INDEX "index_teams_on_user_id" ON "teams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116130237') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (280.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_development"[0m
+  [1m[35m (226.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_test"[0m
+  [1m[35m (764.8ms)[0m  [1m[35mCREATE DATABASE "futebet_development" ENCODING = 'unicode'[0m
+  [1m[35m (687.5ms)[0m  [1m[35mCREATE DATABASE "futebet_test" ENCODING = 'unicode'[0m
+  [1m[35m (109.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (4.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-16 17:37:37.886855', '2024-11-16 17:37:37.886863') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20241113125338)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (43.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (57.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241113125338') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeams (20241114212330)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (19.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlayers (20241114212818)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "position" character varying, "skill_level" integer, "team_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (43.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20241114224449)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (33.0ms)[0m  [1m[35mCREATE TABLE "matches" ("id" bigserial primary key, "home_team_id" integer, "away_team_id" integer, "home_score" integer, "away_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_4aed6bdf0d"
+FOREIGN KEY ("home_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_6a75121a9b"
+FOREIGN KEY ("away_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeasons (20241114224451)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.7ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" bigserial primary key, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224451') RETURNING "version"[0m
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToSeasons (20241116122339)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (57.9ms)[0m  [1m[35mALTER TABLE "seasons" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116122339') RETURNING "version"[0m
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTeams (20241116130237)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE INDEX "index_teams_on_user_id" ON "teams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116130237') RETURNING "version"[0m
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (276.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_development"[0m
+  [1m[35m (286.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_test"[0m
+  [1m[35m (968.6ms)[0m  [1m[35mCREATE DATABASE "futebet_development" ENCODING = 'unicode'[0m
+  [1m[35m (732.9ms)[0m  [1m[35mCREATE DATABASE "futebet_test" ENCODING = 'unicode'[0m
+  [1m[35m (120.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (109.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (5.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-16 17:37:57.138549', '2024-11-16 17:37:57.138553') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20241113125338)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241113125338') RETURNING "version"[0m
+  [1m[36mTRANSACTION (22.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeams (20241114212330)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (78.7ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (20.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlayers (20241114212818)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "position" character varying, "skill_level" integer, "team_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (43.2ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20241114224449)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (67.4ms)[0m  [1m[35mCREATE TABLE "matches" ("id" bigserial primary key, "home_team_id" integer, "away_team_id" integer, "home_score" integer, "away_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_4aed6bdf0d"
+FOREIGN KEY ("home_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_6a75121a9b"
+FOREIGN KEY ("away_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (22.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeasons (20241114224451)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.4ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" bigserial primary key, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224451') RETURNING "version"[0m
+  [1m[36mTRANSACTION (18.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToSeasons (20241116122339)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.5ms)[0m  [1m[35mALTER TABLE "seasons" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116122339') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTeams (20241116130237)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCREATE INDEX "index_teams_on_user_id" ON "teams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116130237') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (291.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_development"[0m
+  [1m[35m (260.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "futebet_test"[0m
+  [1m[35m (777.6ms)[0m  [1m[35mCREATE DATABASE "futebet_development" ENCODING = 'unicode'[0m
+  [1m[35m (745.1ms)[0m  [1m[35mCREATE DATABASE "futebet_test" ENCODING = 'unicode'[0m
+  [1m[35m (106.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (4.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-16 17:39:17.589074', '2024-11-16 17:39:17.589079') RETURNING "key"[0m
+Migrating to DeviseCreateUsers (20241113125338)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (92.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (32.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241113125338') RETURNING "version"[0m
+  [1m[36mTRANSACTION (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeams (20241114212330)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.9ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212330') RETURNING "version"[0m
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlayers (20241114212818)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (90.4ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "name" character varying, "position" character varying, "skill_level" integer, "team_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114212818') RETURNING "version"[0m
+  [1m[36mTRANSACTION (17.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMatches (20241114224449)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (72.3ms)[0m  [1m[35mCREATE TABLE "matches" ("id" bigserial primary key, "home_team_id" integer, "away_team_id" integer, "home_score" integer, "away_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_4aed6bdf0d"
+FOREIGN KEY ("home_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "matches" ADD CONSTRAINT "fk_rails_6a75121a9b"
+FOREIGN KEY ("away_team_id")
+  REFERENCES "teams" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224449') RETURNING "version"[0m
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeasons (20241114224451)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" bigserial primary key, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241114224451') RETURNING "version"[0m
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToSeasons (20241116122339)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.7ms)[0m  [1m[35mALTER TABLE "seasons" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116122339') RETURNING "version"[0m
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTeams (20241116130237)
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35m (37.0ms)[0m  [1m[35mCREATE INDEX "index_teams_on_user_id" ON "teams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241116130237') RETURNING "version"[0m
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1390336866653757225)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (3.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "llama"], ["created_at", "2024-11-16 17:39:18.903080"], ["updated_at", "2024-11-16 17:39:18.903080"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "badger"], ["created_at", "2024-11-16 17:39:18.916975"], ["updated_at", "2024-11-16 17:39:18.916975"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.0ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "mallard"], ["created_at", "2024-11-16 17:39:18.928150"], ["updated_at", "2024-11-16 17:39:18.928150"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (1.9ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "weasel"], ["created_at", "2024-11-16 17:39:18.939523"], ["updated_at", "2024-11-16 17:39:18.939523"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.1ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "swan"], ["created_at", "2024-11-16 17:39:18.950473"], ["updated_at", "2024-11-16 17:39:18.950473"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.1ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "skunk"], ["created_at", "2024-11-16 17:39:18.961412"], ["updated_at", "2024-11-16 17:39:18.961412"], ["user_id", nil]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.6ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "scorpion"], ["created_at", "2024-11-16 17:39:18.973021"], ["updated_at", "2024-11-16 17:39:18.973021"], ["user_id", nil]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.7ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "donkey"], ["created_at", "2024-11-16 17:39:18.984286"], ["updated_at", "2024-11-16 17:39:18.984286"], ["user_id", nil]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sebastian Tremblay"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.017724"], ["updated_at", "2024-11-16 17:39:19.017724"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Irmgard Weber"], ["position", "Goleiro"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.028795"], ["updated_at", "2024-11-16 17:39:19.028795"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Billy Williamson"], ["position", "Goleiro"], ["skill_level", 10], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.039655"], ["updated_at", "2024-11-16 17:39:19.039655"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elliott Smith"], ["position", "Goleiro"], ["skill_level", 10], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.050696"], ["updated_at", "2024-11-16 17:39:19.050696"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tamatha Reinger"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.061937"], ["updated_at", "2024-11-16 17:39:19.061937"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jacelyn Ortiz"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.073415"], ["updated_at", "2024-11-16 17:39:19.073415"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kurtis Wilderman"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 2], ["created_at", "2024-11-16 17:39:19.084396"], ["updated_at", "2024-11-16 17:39:19.084396"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Genaro Mayer"], ["position", "Goleiro"], ["skill_level", 9], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.094798"], ["updated_at", "2024-11-16 17:39:19.094798"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Myles Hintz"], ["position", "Goleiro"], ["skill_level", 7], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.106738"], ["updated_at", "2024-11-16 17:39:19.106738"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Shantelle Langosh"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.117312"], ["updated_at", "2024-11-16 17:39:19.117312"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Israel Johnson"], ["position", "Goleiro"], ["skill_level", 8], ["team_id", 2], ["created_at", "2024-11-16 17:39:19.128602"], ["updated_at", "2024-11-16 17:39:19.128602"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sheryl Herzog"], ["position", "Goleiro"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.140356"], ["updated_at", "2024-11-16 17:39:19.140356"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Clemmie Barrows"], ["position", "Goleiro"], ["skill_level", 8], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.151011"], ["updated_at", "2024-11-16 17:39:19.151011"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hallie Brown"], ["position", "Goleiro"], ["skill_level", 8], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.161786"], ["updated_at", "2024-11-16 17:39:19.161786"]]
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mason Hudson"], ["position", "Goleiro"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.195951"], ["updated_at", "2024-11-16 17:39:19.195951"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Keenan O'Hara"], ["position", "Goleiro"], ["skill_level", 6], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.205840"], ["updated_at", "2024-11-16 17:39:19.205840"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mallory O'Conner"], ["position", "Goleiro"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.217302"], ["updated_at", "2024-11-16 17:39:19.217302"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Cherelle Abernathy"], ["position", "Goleiro"], ["skill_level", 10], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.228727"], ["updated_at", "2024-11-16 17:39:19.228727"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kory Monahan"], ["position", "Goleiro"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.239016"], ["updated_at", "2024-11-16 17:39:19.239016"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Linwood McCullough"], ["position", "Goleiro"], ["skill_level", 10], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.251068"], ["updated_at", "2024-11-16 17:39:19.251068"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Demarcus Kozey"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.261542"], ["updated_at", "2024-11-16 17:39:19.261542"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Karyl Rau"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.272945"], ["updated_at", "2024-11-16 17:39:19.272945"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Isadora Howe"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.284217"], ["updated_at", "2024-11-16 17:39:19.284217"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Benedict Kreiger"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.294742"], ["updated_at", "2024-11-16 17:39:19.294742"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Neal Little"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.306842"], ["updated_at", "2024-11-16 17:39:19.306842"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Wade Thompson"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.317033"], ["updated_at", "2024-11-16 17:39:19.317033"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Anjelica Kuhic"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.328413"], ["updated_at", "2024-11-16 17:39:19.328413"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ora Halvorson"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.340087"], ["updated_at", "2024-11-16 17:39:19.340087"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Raymond Dickinson"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.350226"], ["updated_at", "2024-11-16 17:39:19.350226"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lottie Heaney"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.361598"], ["updated_at", "2024-11-16 17:39:19.361598"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Devin Farrell"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.372840"], ["updated_at", "2024-11-16 17:39:19.372840"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Garland Block"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.383961"], ["updated_at", "2024-11-16 17:39:19.383961"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ciera Brown"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.394595"], ["updated_at", "2024-11-16 17:39:19.394595"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Marybelle Hills"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.405900"], ["updated_at", "2024-11-16 17:39:19.405900"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Isela Nader"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.418270"], ["updated_at", "2024-11-16 17:39:19.418270"]]
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ilona Dach"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.439227"], ["updated_at", "2024-11-16 17:39:19.439227"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Derrick Dare"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.450425"], ["updated_at", "2024-11-16 17:39:19.450425"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Harland Olson"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.461227"], ["updated_at", "2024-11-16 17:39:19.461227"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Brant Thompson"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.472997"], ["updated_at", "2024-11-16 17:39:19.472997"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Cordie Rippin"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.484248"], ["updated_at", "2024-11-16 17:39:19.484248"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Andreas Nikolaus"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.494625"], ["updated_at", "2024-11-16 17:39:19.494625"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ta Parisian"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.505910"], ["updated_at", "2024-11-16 17:39:19.505910"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hoyt Sawayn"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.516749"], ["updated_at", "2024-11-16 17:39:19.516749"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tod Crona"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.528171"], ["updated_at", "2024-11-16 17:39:19.528171"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eladia Pollich"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.539635"], ["updated_at", "2024-11-16 17:39:19.539635"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kellie Runolfsson"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.549963"], ["updated_at", "2024-11-16 17:39:19.549963"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Karisa Jenkins"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.561171"], ["updated_at", "2024-11-16 17:39:19.561171"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Darnell Dooley"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 2], ["created_at", "2024-11-16 17:39:19.572610"], ["updated_at", "2024-11-16 17:39:19.572610"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Shanika Veum"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.583754"], ["updated_at", "2024-11-16 17:39:19.583754"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Myriam Turner"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.594844"], ["updated_at", "2024-11-16 17:39:19.594844"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Otto Simonis"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.605721"], ["updated_at", "2024-11-16 17:39:19.605721"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Noelle Watsica"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.616882"], ["updated_at", "2024-11-16 17:39:19.616882"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Cedrick Trantow"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.628247"], ["updated_at", "2024-11-16 17:39:19.628247"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ramiro Lakin"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.638881"], ["updated_at", "2024-11-16 17:39:19.638881"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Pei Buckridge"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.650302"], ["updated_at", "2024-11-16 17:39:19.650302"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jen Pouros"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.661258"], ["updated_at", "2024-11-16 17:39:19.661258"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Patrina Bogan"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.672584"], ["updated_at", "2024-11-16 17:39:19.672584"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Robby O'Kon"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.683845"], ["updated_at", "2024-11-16 17:39:19.683845"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Katheryn Crist"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.694284"], ["updated_at", "2024-11-16 17:39:19.694284"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Errol Effertz"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.705472"], ["updated_at", "2024-11-16 17:39:19.705472"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sumiko Schinner"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.717090"], ["updated_at", "2024-11-16 17:39:19.717090"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Verlie Bergstrom"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.727917"], ["updated_at", "2024-11-16 17:39:19.727917"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lena Ritchie"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.738645"], ["updated_at", "2024-11-16 17:39:19.738645"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ileen Gulgowski"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.750408"], ["updated_at", "2024-11-16 17:39:19.750408"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Houston Rice"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.760856"], ["updated_at", "2024-11-16 17:39:19.760856"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Joan Kris"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.772076"], ["updated_at", "2024-11-16 17:39:19.772076"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Trevor Leffler"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.784331"], ["updated_at", "2024-11-16 17:39:19.784331"]]
+  [1m[36mTRANSACTION (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Erik Torp"], ["position", "Defensor"], ["skill_level", 7], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.805393"], ["updated_at", "2024-11-16 17:39:19.805393"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Israel MacGyver"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.816828"], ["updated_at", "2024-11-16 17:39:19.816828"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Scot Cremin"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.827953"], ["updated_at", "2024-11-16 17:39:19.827953"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Antione Lockman"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.839067"], ["updated_at", "2024-11-16 17:39:19.839067"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Zoila Rosenbaum"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.849885"], ["updated_at", "2024-11-16 17:39:19.849885"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sherrie Johnson"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.861402"], ["updated_at", "2024-11-16 17:39:19.861402"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eduardo Rempel"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.872013"], ["updated_at", "2024-11-16 17:39:19.872013"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Delila Pfannerstill"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.883396"], ["updated_at", "2024-11-16 17:39:19.883396"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Santos Weber"], ["position", "Defensor"], ["skill_level", 10], ["team_id", 3], ["created_at", "2024-11-16 17:39:19.894934"], ["updated_at", "2024-11-16 17:39:19.894934"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Meredith Littel"], ["position", "Defensor"], ["skill_level", 6], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.905211"], ["updated_at", "2024-11-16 17:39:19.905211"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tanja Emmerich"], ["position", "Defensor"], ["skill_level", 9], ["team_id", 1], ["created_at", "2024-11-16 17:39:19.916582"], ["updated_at", "2024-11-16 17:39:19.916582"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lulu Schamberger"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:19.928232"], ["updated_at", "2024-11-16 17:39:19.928232"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Burl Hyatt"], ["position", "Defensor"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:19.938722"], ["updated_at", "2024-11-16 17:39:19.938722"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sherman Lockman"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:19.949474"], ["updated_at", "2024-11-16 17:39:19.949474"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Julieta Wisoky"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:19.960961"], ["updated_at", "2024-11-16 17:39:19.960961"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eliseo Weissnat"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.972014"], ["updated_at", "2024-11-16 17:39:19.972014"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Damien Koch"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 2], ["created_at", "2024-11-16 17:39:19.982832"], ["updated_at", "2024-11-16 17:39:19.982832"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Carmen Hoppe"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 8], ["created_at", "2024-11-16 17:39:19.994443"], ["updated_at", "2024-11-16 17:39:19.994443"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chantell McLaughlin"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.005153"], ["updated_at", "2024-11-16 17:39:20.005153"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Merlin Hartmann"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.017257"], ["updated_at", "2024-11-16 17:39:20.017257"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Maricela Collier"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.027549"], ["updated_at", "2024-11-16 17:39:20.027549"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Robbie Bernhard"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.039024"], ["updated_at", "2024-11-16 17:39:20.039024"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jose Schumm"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.049417"], ["updated_at", "2024-11-16 17:39:20.049417"]]
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ira Rutherford"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.071820"], ["updated_at", "2024-11-16 17:39:20.071820"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Randell Bergnaum"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.083849"], ["updated_at", "2024-11-16 17:39:20.083849"]]
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Carrie Boehm"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.105128"], ["updated_at", "2024-11-16 17:39:20.105128"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Arlen Kshlerin"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.116600"], ["updated_at", "2024-11-16 17:39:20.116600"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hipolito Witting"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.128130"], ["updated_at", "2024-11-16 17:39:20.128130"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lashaunda Dickens"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.138401"], ["updated_at", "2024-11-16 17:39:20.138401"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ed Gibson"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.149719"], ["updated_at", "2024-11-16 17:39:20.149719"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ned Gulgowski"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.161031"], ["updated_at", "2024-11-16 17:39:20.161031"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Milo Bahringer"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.171741"], ["updated_at", "2024-11-16 17:39:20.171741"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Delora Pacocha"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.182658"], ["updated_at", "2024-11-16 17:39:20.182658"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kristofer Ziemann"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.194262"], ["updated_at", "2024-11-16 17:39:20.194262"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Marylin Hansen"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.205552"], ["updated_at", "2024-11-16 17:39:20.205552"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Seth Sanford"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.216600"], ["updated_at", "2024-11-16 17:39:20.216600"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eloisa McCullough"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.227478"], ["updated_at", "2024-11-16 17:39:20.227478"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Brooks Witting"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.238747"], ["updated_at", "2024-11-16 17:39:20.238747"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elmer Ferry"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.249370"], ["updated_at", "2024-11-16 17:39:20.249370"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Santo Maggio"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.260702"], ["updated_at", "2024-11-16 17:39:20.260702"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tim Collier"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.272125"], ["updated_at", "2024-11-16 17:39:20.272125"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Alton Jones"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.282661"], ["updated_at", "2024-11-16 17:39:20.282661"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Joel Hand"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.294006"], ["updated_at", "2024-11-16 17:39:20.294006"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lisabeth Ledner"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.305253"], ["updated_at", "2024-11-16 17:39:20.305253"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jeremiah Schmitt"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.316697"], ["updated_at", "2024-11-16 17:39:20.316697"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bruno Runolfsdottir"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.327683"], ["updated_at", "2024-11-16 17:39:20.327683"]]
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Cythia Will"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.349250"], ["updated_at", "2024-11-16 17:39:20.349250"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Haywood Wiegand"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.360507"], ["updated_at", "2024-11-16 17:39:20.360507"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elijah Dare"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.371775"], ["updated_at", "2024-11-16 17:39:20.371775"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Gil Greenfelder"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.383312"], ["updated_at", "2024-11-16 17:39:20.383312"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Madeline Conn"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.394381"], ["updated_at", "2024-11-16 17:39:20.394381"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Gwyneth Miller"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.405047"], ["updated_at", "2024-11-16 17:39:20.405047"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lisbeth Rosenbaum"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.416284"], ["updated_at", "2024-11-16 17:39:20.416284"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Malcom Christiansen"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.427038"], ["updated_at", "2024-11-16 17:39:20.427038"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Alicia Kling"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.438487"], ["updated_at", "2024-11-16 17:39:20.438487"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Manuela West"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.449759"], ["updated_at", "2024-11-16 17:39:20.449759"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Barbie Bernhard"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.460474"], ["updated_at", "2024-11-16 17:39:20.460474"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Anabel Schowalter"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.471816"], ["updated_at", "2024-11-16 17:39:20.471816"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Olimpia Mayert"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.482393"], ["updated_at", "2024-11-16 17:39:20.482393"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Danelle Gutmann"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.494443"], ["updated_at", "2024-11-16 17:39:20.494443"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Milissa Gorczany"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.504595"], ["updated_at", "2024-11-16 17:39:20.504595"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mistie Farrell"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.515933"], ["updated_at", "2024-11-16 17:39:20.515933"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sylvester Altenwerth"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.527463"], ["updated_at", "2024-11-16 17:39:20.527463"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chrissy Hoeger"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.537964"], ["updated_at", "2024-11-16 17:39:20.537964"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Fermin Doyle"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.549239"], ["updated_at", "2024-11-16 17:39:20.549239"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Trey Torp"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.560975"], ["updated_at", "2024-11-16 17:39:20.560975"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Edwardo Zulauf"], ["position", "Meio-Campista"], ["skill_level", 8], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.571539"], ["updated_at", "2024-11-16 17:39:20.571539"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Anh Ortiz"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.582831"], ["updated_at", "2024-11-16 17:39:20.582831"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Necole Kerluke"], ["position", "Meio-Campista"], ["skill_level", 6], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.593620"], ["updated_at", "2024-11-16 17:39:20.593620"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Donya Howell"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.604696"], ["updated_at", "2024-11-16 17:39:20.604696"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chung Schultz"], ["position", "Meio-Campista"], ["skill_level", 10], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.616593"], ["updated_at", "2024-11-16 17:39:20.616593"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sebastian Howell"], ["position", "Meio-Campista"], ["skill_level", 7], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.626755"], ["updated_at", "2024-11-16 17:39:20.626755"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Saul Kovacek"], ["position", "Meio-Campista"], ["skill_level", 9], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.638121"], ["updated_at", "2024-11-16 17:39:20.638121"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elisa Kassulke"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.649289"], ["updated_at", "2024-11-16 17:39:20.649289"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Latoria Hayes"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.660439"], ["updated_at", "2024-11-16 17:39:20.660439"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Azucena McGlynn"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.670878"], ["updated_at", "2024-11-16 17:39:20.670878"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Erik Buckridge"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.682873"], ["updated_at", "2024-11-16 17:39:20.682873"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Darcel Nikolaus"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.694046"], ["updated_at", "2024-11-16 17:39:20.694046"]]
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Astrid Ondricka"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.715538"], ["updated_at", "2024-11-16 17:39:20.715538"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Marion Stracke"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.726956"], ["updated_at", "2024-11-16 17:39:20.726956"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Daniel Mosciski"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.738699"], ["updated_at", "2024-11-16 17:39:20.738699"]]
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Spencer Torp"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.759848"], ["updated_at", "2024-11-16 17:39:20.759848"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sol Jacobi"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.771385"], ["updated_at", "2024-11-16 17:39:20.771385"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Heather Koch"], ["position", "Atacante"], ["skill_level", 10], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.782292"], ["updated_at", "2024-11-16 17:39:20.782292"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mayme Graham"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 4], ["created_at", "2024-11-16 17:39:20.793735"], ["updated_at", "2024-11-16 17:39:20.793735"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Gisela Balistreri"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.804147"], ["updated_at", "2024-11-16 17:39:20.804147"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Shenika Labadie"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.815745"], ["updated_at", "2024-11-16 17:39:20.815745"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Arthur Brown"], ["position", "Atacante"], ["skill_level", 10], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.827307"], ["updated_at", "2024-11-16 17:39:20.827307"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Clarisa Mosciski"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.838263"], ["updated_at", "2024-11-16 17:39:20.838263"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lottie Botsford"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.849095"], ["updated_at", "2024-11-16 17:39:20.849095"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Marty Cruickshank"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.860231"], ["updated_at", "2024-11-16 17:39:20.860231"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Harris Abernathy"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:20.871315"], ["updated_at", "2024-11-16 17:39:20.871315"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dino Ankunding"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 1], ["created_at", "2024-11-16 17:39:20.882903"], ["updated_at", "2024-11-16 17:39:20.882903"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mack Powlowski"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.893244"], ["updated_at", "2024-11-16 17:39:20.893244"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eusebio Runolfsson"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.904153"], ["updated_at", "2024-11-16 17:39:20.904153"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Raguel Volkman"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.916430"], ["updated_at", "2024-11-16 17:39:20.916430"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Marlyn Emmerich"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 2], ["created_at", "2024-11-16 17:39:20.937347"], ["updated_at", "2024-11-16 17:39:20.937347"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sharleen Mitchell"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 6], ["created_at", "2024-11-16 17:39:20.949258"], ["updated_at", "2024-11-16 17:39:20.949258"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ozzie Steuber"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 3], ["created_at", "2024-11-16 17:39:20.959915"], ["updated_at", "2024-11-16 17:39:20.959915"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lachelle Smitham"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.971691"], ["updated_at", "2024-11-16 17:39:20.971691"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ty Schaden"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 8], ["created_at", "2024-11-16 17:39:20.981836"], ["updated_at", "2024-11-16 17:39:20.981836"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Judie Wiegand"], ["position", "Atacante"], ["skill_level", 10], ["team_id", 7], ["created_at", "2024-11-16 17:39:20.993289"], ["updated_at", "2024-11-16 17:39:20.993289"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vivien Hoeger"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 8], ["created_at", "2024-11-16 17:39:21.004464"], ["updated_at", "2024-11-16 17:39:21.004464"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Brandi Bogisich"], ["position", "Atacante"], ["skill_level", 10], ["team_id", 7], ["created_at", "2024-11-16 17:39:21.015509"], ["updated_at", "2024-11-16 17:39:21.015509"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Emery Jaskolski"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.026697"], ["updated_at", "2024-11-16 17:39:21.026697"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Leonel Maggio"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 2], ["created_at", "2024-11-16 17:39:21.037419"], ["updated_at", "2024-11-16 17:39:21.037419"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Criselda Friesen"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.048828"], ["updated_at", "2024-11-16 17:39:21.048828"]]
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hwa Keeling"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.070620"], ["updated_at", "2024-11-16 17:39:21.070620"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ruben Morar"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 3], ["created_at", "2024-11-16 17:39:21.082342"], ["updated_at", "2024-11-16 17:39:21.082342"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sang Schaden"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.092871"], ["updated_at", "2024-11-16 17:39:21.092871"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Minta Gislason"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.104213"], ["updated_at", "2024-11-16 17:39:21.104213"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Renna Bruen"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.115174"], ["updated_at", "2024-11-16 17:39:21.115174"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Fidel Willms"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.126430"], ["updated_at", "2024-11-16 17:39:21.126430"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rosita Marks"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 1], ["created_at", "2024-11-16 17:39:21.137702"], ["updated_at", "2024-11-16 17:39:21.137702"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Efrain Reichel"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 1], ["created_at", "2024-11-16 17:39:21.148793"], ["updated_at", "2024-11-16 17:39:21.148793"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bruna McGlynn"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.160113"], ["updated_at", "2024-11-16 17:39:21.160113"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elizebeth Ernser"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 3], ["created_at", "2024-11-16 17:39:21.170528"], ["updated_at", "2024-11-16 17:39:21.170528"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dixie Frami"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 2], ["created_at", "2024-11-16 17:39:21.182624"], ["updated_at", "2024-11-16 17:39:21.182624"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Arnold Mante"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.192919"], ["updated_at", "2024-11-16 17:39:21.192919"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.9ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Luther Trantow"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 7], ["created_at", "2024-11-16 17:39:21.203766"], ["updated_at", "2024-11-16 17:39:21.203766"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Frances Hane"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.215659"], ["updated_at", "2024-11-16 17:39:21.215659"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (1.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Johnetta Schimmel"], ["position", "Atacante"], ["skill_level", 7], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.226135"], ["updated_at", "2024-11-16 17:39:21.226135"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tracey Koch"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 2], ["created_at", "2024-11-16 17:39:21.237737"], ["updated_at", "2024-11-16 17:39:21.237737"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.0ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Glenn Rolfson"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:21.248141"], ["updated_at", "2024-11-16 17:39:21.248141"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Antonio Blick"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 8], ["created_at", "2024-11-16 17:39:21.259900"], ["updated_at", "2024-11-16 17:39:21.259900"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Eliseo Schmitt"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 1], ["created_at", "2024-11-16 17:39:21.270960"], ["updated_at", "2024-11-16 17:39:21.270960"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dawne Paucek"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 3], ["created_at", "2024-11-16 17:39:21.281903"], ["updated_at", "2024-11-16 17:39:21.281903"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Otelia Ward"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 1], ["created_at", "2024-11-16 17:39:21.292652"], ["updated_at", "2024-11-16 17:39:21.292652"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Darnell Gerlach"], ["position", "Atacante"], ["skill_level", 8], ["team_id", 5], ["created_at", "2024-11-16 17:39:21.304193"], ["updated_at", "2024-11-16 17:39:21.304193"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sebastian Hane"], ["position", "Atacante"], ["skill_level", 10], ["team_id", 3], ["created_at", "2024-11-16 17:39:21.315496"], ["updated_at", "2024-11-16 17:39:21.315496"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Chantell Will"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 4], ["created_at", "2024-11-16 17:39:21.326478"], ["updated_at", "2024-11-16 17:39:21.326478"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tyrell Smith"], ["position", "Atacante"], ["skill_level", 9], ["team_id", 6], ["created_at", "2024-11-16 17:39:21.336993"], ["updated_at", "2024-11-16 17:39:21.336993"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "position", "skill_level", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Zachary Moore"], ["position", "Atacante"], ["skill_level", 6], ["team_id", 5], ["created_at", "2024-11-16 17:39:21.348456"], ["updated_at", "2024-11-16 17:39:21.348456"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeason Create (2.6ms)[0m  [1m[32mINSERT INTO "seasons" ("year", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["year", nil], ["created_at", "2024-11-16 17:39:21.377720"], ["updated_at", "2024-11-16 17:39:21.377720"], ["name", "Season 1"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeason Create (1.7ms)[0m  [1m[32mINSERT INTO "seasons" ("year", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["year", nil], ["created_at", "2024-11-16 17:39:21.392407"], ["updated_at", "2024-11-16 17:39:21.392407"], ["name", "Season 2"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeason Create (2.1ms)[0m  [1m[32mINSERT INTO "seasons" ("year", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["year", nil], ["created_at", "2024-11-16 17:39:21.403481"], ["updated_at", "2024-11-16 17:39:21.403481"], ["name", "Season 3"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
