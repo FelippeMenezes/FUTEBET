@@ -8,10 +8,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @teams.each do |team| %>
+    <% if @teams.present? %>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= link_to 'Mostrar', team_path(team) %></td>
+        </tr>
+      <% end %>
+    <% else %>
       <tr>
-        <td><%= team.name %></td>
-        <td><%= link_to 'Mostrar', team_path(team) %></td>
+        <td colspan="2">Nenhum time encontrado.</td>
       </tr>
     <% end %>
   </tbody>

@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :teams
   root to: "pages#home"
+  resources :teams do
+    member do
+      patch 'update_players', to: 'teams#update_players'
+    end
+  end
 
   # Redireciona para a página teams/index após efetuar o login
   authenticated :user do

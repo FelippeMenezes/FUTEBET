@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.all
+    @teams = Team.where(user_id: current_user.id)
   end
 
   def new
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
+    @team = current_user.teams.build(team_params)
     if @team.save
       redirect_to teams_path, notice: 'Time criado com sucesso.'
     else
@@ -22,6 +22,16 @@ class TeamsController < ApplicationController
   end
 
   def update
+  end
+
+  def update_players
+    @team = Team.find(params[:id])
+    @team.player_ids = params[:team][:player_ids]
+    if @team.save
+      redirect_to @team, notice: 'Jogadores atualizados com sucesso.'
+    else
+      render :show, alert: 'Erro ao atualizar jogadores.'
+    end
   end
 
   def delete

@@ -9,25 +9,32 @@
 #   end
 require 'faker'
 
-# Create 4 teams with 11 players (1 Goalkeeper, 4 Defenders, 3 Midfielders, 3 Forwards)
-4.times do |team_index|
-  team = Team.create!(name: Faker::Sports::Football.team)
+# Cria alguns times primeiro
+teams = []
+8.times do |i|
+  teams << Team.create!(name: "Team #{i + 1}")
+end
 
-  # Create 1 Goalkeeper
-  Player.create!(name: Faker::Sports::Football.player, position: 'Goalkeeper', team: team, skill_level: rand(5..10))
+# Cria jogadores e associa-os a um time
+positions = {
+  "Goleiro" => 20,
+  "Defensor" => 60,
+  "Meio-Campista" => 60,
+  "Atacante" => 60
+}
 
-  # Create 4 Defenders
-  4.times do
-    Player.create!(name: Faker::Sports::Football.player, position: 'Defender', team: team, skill_level: rand(5..10))
+positions.each do |position, count|
+  count.times do
+    Player.create!(
+      name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
+      position: position,
+      skill_level: rand(6..10),
+      team: teams.sample # Associa o jogador a um time aleatório
+    )
   end
+end
 
-  # Create 3 Midfielders
-  3.times do
-    Player.create!(name: Faker::Sports::Football.player, position: 'Midfielder', team: team, skill_level: rand(5..10))
-  end
-
-  # Create 3 Forwards
-  3.times do
-    Player.create!(name: Faker::Sports::Football.player, position: 'Forward', team: team, skill_level: rand(5..10))
-  end
+# Cria algumas temporadas
+3.times do |i|
+  Season.create!(name: "Season #{i + 1}")
 end
