@@ -1,2 +1,28 @@
 <h1>Matches#show</h1>
 <p>Find me in app/views/matches/show.html.erb</p>
+
+<h1>Detalhes da Partida</h1>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div style="margin-right: 20px;">
+        <%= @match.home_team.name %>
+        <ul>
+            <% @match.home_team.players.each do |player| %>
+                <li><%= player.name %></li>
+            <% end %>
+        </ul>
+    </div>
+    <div><p>Score: <%= @match.home_score %> X Score: <%= @match.away_score %></p></div>
+    <div style="margin-left: 20px;">
+        <%= @match.away_team.name %>
+                <ul>
+            <% @match.away_team.players.each do |player| %>
+                <li><%= player.name %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<div style="margin-top: 20px;">
+    <%= button_to 'Começar partida', simulate_match_path(@match), method: :post, class: 'btn btn-primary' %>
+</div>
+<%= link_to 'Voltar', teams_path %>

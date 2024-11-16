@@ -24,4 +24,13 @@ class MatchesController < ApplicationController
 
   def delete
   end
+
+  def simulate
+    @match = Match.find(params[:id])
+    # Lógica para simular a partida 
+    # (atribui valores aleatórios para os atributos home_score e away_score)
+    @match.simulate
+    @match.save
+    redirect_to match_path(@match)
+  end
 end

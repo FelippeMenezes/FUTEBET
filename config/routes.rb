@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     end
   end
   resources :matches, only: [:index, :create, :show]
+  resources :matches do
+    post 'simulate', on: :member
+  end
 
   # Redireciona para a página teams/index após efetuar o login
   authenticated :user do
