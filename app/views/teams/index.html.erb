@@ -1,27 +1,19 @@
-<h1>Times</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @teams.present? %>
-      <% @teams.each do |team| %>
-        <tr>
-          <td><%= team.name %></td>
-          <td><%= link_to 'Mostrar', team_path(team) %></td>
-        </tr>
+<div class="teams">
+  <h1>Suas equipes</h1>
+    <div>
+      <% if @teams.present? %>
+        <% @teams.each do |team| %>
+            <%= team.name %>
+            <%= link_to 'Jogar', team_path(team), class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+          <td colspan="2">Nenhum time encontrado.
       <% end %>
-    <% else %>
-      <tr>
-        <td colspan="2">Nenhum time encontrado.</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+    <br>
+    <div>
+    <%= link_to 'Criar Novo Time', new_team_path, class: 'btn btn-primary' %>
+    </div>
+</div>
 
-<%= link_to 'Criar Novo Time', new_team_path %>
-
+<%= image_tag 'create_team.jpeg', class: 'create-team' %>
