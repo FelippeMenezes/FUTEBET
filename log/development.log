@@ -25433,3 +25433,1186 @@ Processing by TeamsController#index as HTML
 Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 0.9ms | Allocations: 12601)
 
 
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for 127.0.0.1 at 2024-11-16 21:19:41 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 10120.3ms | Allocations: 129483)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 48.9ms | Allocations: 11318)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 276)
+  Rendered layout layouts/application.html.erb (Duration: 10220.7ms | Allocations: 170955)
+Completed 200 OK in 10792ms (Views: 10210.6ms | ActiveRecord: 15.3ms | Allocations: 458841)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-16 21:20:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.8ms | Allocations: 679)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 124.6ms | Allocations: 23515)
+  Rendered shared/_navbar.html.erb (Duration: 1.4ms | Allocations: 585)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 208.4ms | Allocations: 31850)
+Completed 200 OK in 265ms (Views: 215.0ms | ActiveRecord: 0.0ms | Allocations: 52185)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-16 21:20:12 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 126)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 25.2ms | Allocations: 8551)
+  Rendered shared/_navbar.html.erb (Duration: 1.9ms | Allocations: 542)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 16655)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.0ms | Allocations: 17517)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-11-16 21:20:15 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"teste@futebol.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "teste@futebol.com.br"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 20ms (ActiveRecord: 1.7ms | Allocations: 2326)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"teste@futebol.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 129)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 8748)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 525)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 16945)
+Completed 200 OK in 330ms (Views: 40.0ms | ActiveRecord: 0.0ms | Allocations: 18883)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-11-16 21:20:17 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 109)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 7445)
+  Rendered shared/_navbar.html.erb (Duration: 5.0ms | Allocations: 563)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 44.2ms | Allocations: 15699)
+Completed 200 OK in 48ms (Views: 45.6ms | ActiveRecord: 0.0ms | Allocations: 16840)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-11-16 21:20:28 -0300
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"teste@futebol.com.br", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "teste@futebol.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "teste@futebol.com.br"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-11-17 00:20:28.889523"], ["updated_at", "2024-11-17 00:20:28.889523"]]
+  [1m[36mTRANSACTION (25.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/teams/index
+Completed 303 See Other in 335ms (ActiveRecord: 29.3ms | Allocations: 11533)
+
+
+Started GET "/teams/index" for 127.0.0.1 at 2024-11-16 21:20:28 -0300
+Processing by TeamsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 17.3ms | Allocations: 1860)
+  Rendered shared/_navbar.html.erb (Duration: 14.5ms | Allocations: 1007)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 156.7ms | Allocations: 10414)
+Completed 200 OK in 246ms (Views: 157.7ms | ActiveRecord: 2.6ms | Allocations: 19155)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2024-11-16 21:20:51 -0300
+Processing by TeamsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1175)
+  Rendered shared/_navbar.html.erb (Duration: 8.3ms | Allocations: 1037)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 50.1ms | Allocations: 9934)
+Completed 200 OK in 109ms (Views: 53.7ms | ActiveRecord: 2.7ms | Allocations: 27090)
+
+
+Started POST "/teams" for 127.0.0.1 at 2024-11-16 21:20:56 -0300
+Processing by TeamsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "team"=>{"name"=>"Flamingo"}, "commit"=>"Salvar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+  [1m[36mTeam Create (5.0ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Flamingo"], ["created_at", "2024-11-17 00:20:56.038537"], ["updated_at", "2024-11-17 00:20:56.038537"], ["user_id", 1]]
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (52.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/teams
+Completed 302 Found in 82ms (ActiveRecord: 58.4ms | Allocations: 10110)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-16 21:20:56 -0300
+Processing by TeamsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1471)
+  Rendered shared/_navbar.html.erb (Duration: 6.0ms | Allocations: 998)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 9952)
+Completed 200 OK in 46ms (Views: 39.1ms | ActiveRecord: 0.8ms | Allocations: 11998)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:21:01 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 50.5ms | Allocations: 28432)
+  Rendered shared/_navbar.html.erb (Duration: 5.5ms | Allocations: 1006)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 74.4ms | Allocations: 36898)
+Completed 200 OK in 133ms (Views: 69.9ms | ActiveRecord: 10.6ms | Allocations: 44139)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:21:03 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 35.0ms | Allocations: 10354)
+  Rendered shared/_navbar.html.erb (Duration: 1.5ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 60.4ms | Allocations: 18779)
+Completed 200 OK in 81ms (Views: 62.7ms | ActiveRecord: 2.4ms | Allocations: 21281)
+
+
+Started PATCH "/teams/9/update_players" for 127.0.0.1 at 2024-11-16 21:21:50 -0300
+Processing by TeamsController#update_players as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "team"=>{"player_ids"=>["1", "2", "3", "4", "34", "35", "36", "37", "38", "84", "85", "86", "87", "88", "115", "174", "175", "177", "178", "183"]}, "commit"=>"Adicionar Jogadores", "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:28:in `update_players'
+  [1m[36mPlayer Pluck (0.3ms)[0m  [1m[34mSELECT "players"."id" FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 34], ["id", 35], ["id", 36], ["id", 37], ["id", 38], ["id", 84], ["id", 85], ["id", 86], ["id", 87], ["id", 88], ["id", 115], ["id", 174], ["id", 175], ["id", 177], ["id", 178], ["id", 183]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Load (3.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (4.7ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.494304"], ["id", 1]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.504578"], ["id", 2]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (4.2ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.507729"], ["id", 3]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.9ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.517125"], ["id", 4]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.522279"], ["id", 34]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.7ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.525091"], ["id", 35]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.535425"], ["id", 36]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.539556"], ["id", 37]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.7ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.546113"], ["id", 38]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.553091"], ["id", 84]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.556266"], ["id", 85]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.8ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.562868"], ["id", 86]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.568326"], ["id", 87]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.572959"], ["id", 88]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (2.4ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.579426"], ["id", 115]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.586617"], ["id", 174]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.589885"], ["id", 175]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (1.0ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.597414"], ["id", 177]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.604095"], ["id", 178]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mPlayer Update (2.6ms)[0m  [1m[33mUPDATE "players" SET "team_id" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["team_id", 9], ["updated_at", "2024-11-17 00:21:50.607075"], ["id", 183]]
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+  [1m[36mTRANSACTION (22.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:30:in `update_players'
+Redirected to http://127.0.0.1:3000/teams/9
+Completed 302 Found in 181ms (ActiveRecord: 50.6ms | Allocations: 27350)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:21:50 -0300
+Processing by TeamsController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 34.3ms | Allocations: 10305)
+  Rendered shared/_navbar.html.erb (Duration: 3.8ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 18737)
+Completed 200 OK in 66ms (Views: 55.9ms | ActiveRecord: 2.0ms | Allocations: 21132)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-16 21:21:59 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1319)
+  Rendered shared/_navbar.html.erb (Duration: 4.6ms | Allocations: 989)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 9749)
+Completed 200 OK in 37ms (Views: 27.9ms | ActiveRecord: 0.9ms | Allocations: 11585)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:22:00 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 3226)
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 1032)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 11943)
+Completed 200 OK in 49ms (Views: 38.3ms | ActiveRecord: 1.3ms | Allocations: 14203)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:22:14 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"5", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (2.7ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 5], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:22:14.386390"], ["updated_at", "2024-11-17 00:22:14.386390"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (36.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/1
+Completed 302 Found in 96ms (ActiveRecord: 48.0ms | Allocations: 25511)
+
+
+Started GET "/matches/1" for 127.0.0.1 at 2024-11-16 21:22:14 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.4ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 5]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 30.0ms | Allocations: 7016)
+  Rendered shared/_navbar.html.erb (Duration: 3.6ms | Allocations: 1006)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 15474)
+Completed 200 OK in 66ms (Views: 52.8ms | ActiveRecord: 2.9ms | Allocations: 18832)
+
+
+Started POST "/matches/1/simulate" for 127.0.0.1 at 2024-11-16 21:22:19 -0300
+Processing by MatchesController#simulate as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.5ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:29:in `simulate'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/match.rb:10:in `simulate'
+  [1m[36mMatch Update (7.8ms)[0m  [1m[33mUPDATE "matches" SET "home_score" = $1, "away_score" = $2, "updated_at" = $3 WHERE "matches"."id" = $4[0m  [["home_score", 5], ["away_score", 2], ["updated_at", "2024-11-17 00:22:19.562254"], ["id", 1]]
+  ↳ app/models/match.rb:10:in `simulate'
+  [1m[36mTRANSACTION (23.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/match.rb:10:in `simulate'
+Redirected to http://127.0.0.1:3000/matches/1
+Completed 302 Found in 53ms (ActiveRecord: 34.5ms | Allocations: 4398)
+
+
+Started GET "/matches/1" for 127.0.0.1 at 2024-11-16 21:22:19 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (1.7ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 5]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 34.1ms | Allocations: 4936)
+  Rendered shared/_navbar.html.erb (Duration: 10.6ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 74.3ms | Allocations: 13361)
+Completed 200 OK in 98ms (Views: 73.9ms | ActiveRecord: 6.3ms | Allocations: 15706)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-16 21:24:46 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1319)
+  Rendered shared/_navbar.html.erb (Duration: 4.3ms | Allocations: 989)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 9749)
+Completed 200 OK in 61ms (Views: 51.8ms | ActiveRecord: 1.4ms | Allocations: 11558)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2024-11-16 21:24:49 -0300
+Processing by TeamsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 412)
+  Rendered shared/_navbar.html.erb (Duration: 3.9ms | Allocations: 1024)
+  Rendered shared/_flashes.html.erb (Duration: 0.8ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 8999)
+Completed 200 OK in 70ms (Views: 57.5ms | ActiveRecord: 1.3ms | Allocations: 10775)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:24:50 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (3.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 61.3ms | Allocations: 10296)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 82.5ms | Allocations: 18721)
+Completed 200 OK in 98ms (Views: 79.7ms | ActiveRecord: 5.4ms | Allocations: 21119)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:24:55 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1703)
+  Rendered shared/_navbar.html.erb (Duration: 8.5ms | Allocations: 1024)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 61.9ms | Allocations: 10290)
+Completed 200 OK in 72ms (Views: 62.2ms | ActiveRecord: 1.0ms | Allocations: 12073)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:24:56 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1702)
+  Rendered shared/_navbar.html.erb (Duration: 5.8ms | Allocations: 1024)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 10289)
+Completed 200 OK in 41ms (Views: 33.1ms | ActiveRecord: 1.7ms | Allocations: 12059)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:25:01 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"7", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (4.2ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 7], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:25:01.353295"], ["updated_at", "2024-11-17 00:25:01.353295"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/2
+Completed 302 Found in 36ms (ActiveRecord: 17.5ms | Allocations: 4949)
+
+
+Started GET "/matches/2" for 127.0.0.1 at 2024-11-16 21:25:01 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (2.3ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 7]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 23.8ms | Allocations: 4772)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 13197)
+Completed 200 OK in 53ms (Views: 41.8ms | ActiveRecord: 4.1ms | Allocations: 15551)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:37:15 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (2.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 1726)
+  Rendered shared/_navbar.html.erb (Duration: 5.7ms | Allocations: 1030)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 121.8ms | Allocations: 10319)
+Completed 200 OK in 177ms (Views: 119.6ms | ActiveRecord: 20.1ms | Allocations: 14992)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:37:32 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (2.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (1.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 70.9ms | Allocations: 10302)
+  Rendered shared/_navbar.html.erb (Duration: 3.8ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 112.8ms | Allocations: 18734)
+Completed 200 OK in 130ms (Views: 112.7ms | ActiveRecord: 5.5ms | Allocations: 21125)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:38:27 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"1", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (9.4ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 1], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:38:27.188319"], ["updated_at", "2024-11-17 00:38:27.188319"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (47.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/3
+Completed 302 Found in 80ms (ActiveRecord: 59.9ms | Allocations: 4980)
+
+
+Started GET "/matches/3" for 127.0.0.1 at 2024-11-16 21:38:27 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.3ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 20.0ms | Allocations: 4544)
+  Rendered shared/_navbar.html.erb (Duration: 2.3ms | Allocations: 1001)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 12971)
+Completed 200 OK in 54ms (Views: 42.3ms | ActiveRecord: 3.1ms | Allocations: 15311)
+
+
+Started GET "/matches/3" for 127.0.0.1 at 2024-11-16 21:39:06 -0300
+Processing by MatchesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (1.5ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (2.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 140.4ms | Allocations: 22151)
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 1494)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 246.6ms | Allocations: 50807)
+Completed 200 OK in 353ms (Views: 233.8ms | ActiveRecord: 44.7ms | Allocations: 68322)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:39:09 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (1.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 4279)
+  Rendered shared/_navbar.html.erb (Duration: 7.8ms | Allocations: 999)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 69.9ms | Allocations: 12711)
+Completed 200 OK in 80ms (Views: 69.1ms | ActiveRecord: 2.2ms | Allocations: 14677)
+
+
+Started GET "/matches/3" for 127.0.0.1 at 2024-11-16 21:41:28 -0300
+Processing by MatchesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.6ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 130.6ms | Allocations: 22106)
+Started GET "/matches/3" for 127.0.0.1 at 2024-11-16 21:41:37 -0300
+  Rendered shared/_navbar.html.erb (Duration: 3.2ms | Allocations: 1498)
+  Rendered shared/_flashes.html.erb (Duration: 1.0ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 10171.5ms | Allocations: 115742)
+Completed 200 OK in 10272ms (Views: 10148.8ms | ActiveRecord: 50.3ms | Allocations: 133093)
+
+
+Processing by MatchesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.7ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (1.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (3.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 100.1ms | Allocations: 22126)
+  Rendered shared/_navbar.html.erb (Duration: 3.5ms | Allocations: 1496)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 166.2ms | Allocations: 50854)
+Completed 200 OK in 251ms (Views: 155.0ms | ActiveRecord: 31.1ms | Allocations: 68225)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:41:44 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 29.9ms | Allocations: 5740)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 5820)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.5ms | Allocations: 7803)
+
+
+  
+ActionView::Template::Error (The asset "match_index.jpeg" is not present in the asset pipeline.
+):
+    34:   </div>
+    35: </div>
+    36: 
+    37: <%= image_tag 'match_index.jpeg', class: 'match-index' %>
+  
+app/views/matches/index.html.erb:37
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:41:45 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (5.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (8.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (3.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 88.3ms | Allocations: 13376)
+  Rendered shared/_navbar.html.erb (Duration: 9.1ms | Allocations: 1007)
+  Rendered shared/_flashes.html.erb (Duration: 0.7ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 150.5ms | Allocations: 23087)
+Completed 200 OK in 250ms (Views: 140.1ms | ActiveRecord: 52.9ms | Allocations: 50749)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-16 21:41:46 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1625)
+  Rendered shared/_navbar.html.erb (Duration: 11.8ms | Allocations: 989)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 64.0ms | Allocations: 10055)
+Completed 200 OK in 74ms (Views: 65.0ms | ActiveRecord: 1.2ms | Allocations: 12027)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:41:55 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3861)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 3940)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms | Allocations: 5717)
+
+
+  
+ActionView::Template::Error (The asset "match_index.jpeg" is not present in the asset pipeline.
+):
+    34:   </div>
+    35: </div>
+    36: 
+    37: <%= image_tag 'match_index.jpeg', class: 'match-index' %>
+  
+app/views/matches/index.html.erb:37
+Started PATCH "/teams/9/update_players" for 127.0.0.1 at 2024-11-16 21:41:56 -0300
+Processing by TeamsController#update_players as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Adicionar Jogadores", "id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:28:in `update_players'
+Redirected to http://127.0.0.1:3000/teams/9
+Completed 302 Found in 9ms (ActiveRecord: 0.9ms | Allocations: 2373)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:41:56 -0300
+Processing by TeamsController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 36.7ms | Allocations: 10298)
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 59.9ms | Allocations: 18972)
+Completed 200 OK in 74ms (Views: 59.9ms | ActiveRecord: 3.0ms | Allocations: 21405)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:42:00 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 3851)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 3930)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.5ms | Allocations: 5697)
+
+
+  
+ActionView::Template::Error (The asset "match_index.jpeg" is not present in the asset pipeline.
+):
+    34:   </div>
+    35: </div>
+    36: 
+    37: <%= image_tag 'match_index.jpeg', class: 'match-index' %>
+  
+app/views/matches/index.html.erb:37
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:43:35 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 27.9ms | Allocations: 3855)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 3934)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 4.4ms | Allocations: 5703)
+
+
+  
+ActionView::Template::Error (The asset "match_index.jpeg" is not present in the asset pipeline.
+):
+    34:   </div>
+    35: </div>
+    36: 
+    37: <%= image_tag 'match_index.jpeg', class: 'match-index' %>
+  
+app/views/matches/index.html.erb:37
+Started GET "/" for 127.0.0.1 at 2024-11-16 21:43:46 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 830)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 23.2ms | Allocations: 2081)
+  Rendered shared/_flashes.html.erb (Duration: 0.7ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 77.4ms | Allocations: 10866)
+Completed 200 OK in 86ms (Views: 80.2ms | ActiveRecord: 2.0ms | Allocations: 11503)
+
+
+Started DELETE "/users/sign_out?_method=delete" for 127.0.0.1 at 2024-11-16 21:43:53 -0300
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 15ms (ActiveRecord: 0.3ms | Allocations: 3366)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-16 21:43:53 -0300
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 696)
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 624)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 9084)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 9453)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-11-16 21:43:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 45.3ms | Allocations: 9642)
+  Rendered shared/_navbar.html.erb (Duration: 4.1ms | Allocations: 587)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 78.4ms | Allocations: 17979)
+Completed 200 OK in 91ms (Views: 84.0ms | ActiveRecord: 0.0ms | Allocations: 19495)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-11-16 21:43:57 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 92)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 18.8ms | Allocations: 6956)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 555)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 15191)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.0ms | Allocations: 16320)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-11-16 21:43:57 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"teste@futebol.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "teste@futebol.com.br"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/teams/index
+Completed 303 See Other in 302ms (ActiveRecord: 1.0ms | Allocations: 3164)
+
+
+Started GET "/teams/index" for 127.0.0.1 at 2024-11-16 21:43:58 -0300
+Processing by TeamsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1332)
+  Rendered shared/_navbar.html.erb (Duration: 2.3ms | Allocations: 994)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 9781)
+Completed 200 OK in 38ms (Views: 27.6ms | ActiveRecord: 0.9ms | Allocations: 11608)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:44:01 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (2.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 61.3ms | Allocations: 10322)
+  Rendered shared/_navbar.html.erb (Duration: 5.1ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 18753)
+Completed 200 OK in 101ms (Views: 84.2ms | ActiveRecord: 4.2ms | Allocations: 21143)
+
+
+Started PATCH "/teams/9/update_players" for 127.0.0.1 at 2024-11-16 21:44:05 -0300
+Processing by TeamsController#update_players as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Adicionar Jogadores", "id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:28:in `update_players'
+Redirected to http://127.0.0.1:3000/teams/9
+Completed 302 Found in 31ms (ActiveRecord: 2.1ms | Allocations: 2292)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:44:05 -0300
+Processing by TeamsController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 38.8ms | Allocations: 10301)
+  Rendered shared/_navbar.html.erb (Duration: 2.4ms | Allocations: 1007)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 64.3ms | Allocations: 18933)
+Completed 200 OK in 74ms (Views: 63.9ms | ActiveRecord: 2.9ms | Allocations: 21345)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:44:09 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3860)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3939)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.4ms | Allocations: 5703)
+
+
+  
+ActionView::Template::Error (The asset "match_index.jpeg" is not present in the asset pipeline.
+):
+    34:   </div>
+    35: </div>
+    36: 
+    37: <%= image_tag 'match_index.jpeg', class: 'match-index' %>
+  
+app/views/matches/index.html.erb:37
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:45:15 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 224.6ms | Allocations: 58478)
+  Rendered shared/_navbar.html.erb (Duration: 5.4ms | Allocations: 1497)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 294.7ms | Allocations: 87146)
+Completed 200 OK in 382ms (Views: 287.3ms | ActiveRecord: 30.7ms | Allocations: 102106)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:45:22 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"1", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (5.1ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 1], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:45:22.252181"], ["updated_at", "2024-11-17 00:45:22.252181"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (25.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/4
+Completed 302 Found in 122ms (ActiveRecord: 42.8ms | Allocations: 12670)
+
+
+Started GET "/matches/4" for 127.0.0.1 at 2024-11-16 21:45:22 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.8ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 143.4ms | Allocations: 13715)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 1016)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 162.6ms | Allocations: 22445)
+Completed 200 OK in 200ms (Views: 150.3ms | ActiveRecord: 19.5ms | Allocations: 25854)
+
+
+Started GET "/teams" for 127.0.0.1 at 2024-11-16 21:45:24 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/teams/index.html.erb:4
+  Rendered teams/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1787)
+  Rendered shared/_navbar.html.erb (Duration: 5.5ms | Allocations: 1000)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 10273)
+Completed 200 OK in 44ms (Views: 31.1ms | ActiveRecord: 1.2ms | Allocations: 12579)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2024-11-16 21:45:29 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (2.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/teams/show.html.erb:6
+  [1m[36mPlayer Load (7.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/show.html.erb:14:in `reject'
+  Rendered teams/show.html.erb within layouts/application (Duration: 73.1ms | Allocations: 10888)
+  Rendered shared/_navbar.html.erb (Duration: 4.1ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 107.4ms | Allocations: 19319)
+Completed 200 OK in 126ms (Views: 104.3ms | ActiveRecord: 10.1ms | Allocations: 21753)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:45:35 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 2283)
+  Rendered shared/_navbar.html.erb (Duration: 5.6ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 51.6ms | Allocations: 10721)
+Completed 200 OK in 60ms (Views: 51.3ms | ActiveRecord: 1.7ms | Allocations: 12501)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:45:44 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"1", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (2.0ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 1], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:45:44.579122"], ["updated_at", "2024-11-17 00:45:44.579122"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (26.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/5
+Completed 302 Found in 55ms (ActiveRecord: 30.4ms | Allocations: 5044)
+
+
+Started GET "/matches/5" for 127.0.0.1 at 2024-11-16 21:45:44 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.6ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 19.7ms | Allocations: 4547)
+  Rendered shared/_navbar.html.erb (Duration: 5.2ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 45.9ms | Allocations: 12978)
+Completed 200 OK in 58ms (Views: 45.1ms | ActiveRecord: 3.2ms | Allocations: 15343)
+
+
+Started GET "/matches/5" for 127.0.0.1 at 2024-11-16 21:47:26 -0300
+Processing by MatchesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (2.5ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (2.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (1.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 52.9ms | Allocations: 5474)
+  Rendered shared/_navbar.html.erb (Duration: 9.5ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 96.0ms | Allocations: 13905)
+Completed 200 OK in 113ms (Views: 91.5ms | ActiveRecord: 8.7ms | Allocations: 16245)
+
+
+Started GET "/matches/index" for 127.0.0.1 at 2024-11-16 21:47:38 -0300
+Processing by MatchesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/matches/index.html.erb:7
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/team.rb:21:in `created_by_user?'
+  Rendered matches/index.html.erb within layouts/application (Duration: 32.8ms | Allocations: 3189)
+  Rendered shared/_navbar.html.erb (Duration: 13.6ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 90.0ms | Allocations: 11624)
+Completed 200 OK in 102ms (Views: 91.9ms | ActiveRecord: 2.1ms | Allocations: 13406)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-16 21:47:40 -0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.9ms | Allocations: 829)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 20.8ms | Allocations: 2076)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered layout layouts/application.html.erb (Duration: 71.3ms | Allocations: 10662)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 1.3ms | Allocations: 11298)
+
+
+Started POST "/matches" for 127.0.0.1 at 2024-11-16 21:48:03 -0300
+Processing by MatchesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "home_team_id"=>"9", "away_team_id"=>"1", "commit"=>"Criar Partida"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:11:in `create'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mMatch Create (3.7ms)[0m  [1m[32mINSERT INTO "matches" ("home_team_id", "away_team_id", "home_score", "away_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["home_team_id", 9], ["away_team_id", 1], ["home_score", nil], ["away_score", nil], ["created_at", "2024-11-17 00:48:03.628659"], ["updated_at", "2024-11-17 00:48:03.628659"]]
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (30.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/matches_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/matches/6
+Completed 302 Found in 60ms (ActiveRecord: 35.6ms | Allocations: 5056)
+
+
+Started GET "/matches/6" for 127.0.0.1 at 2024-11-16 21:48:03 -0300
+Processing by MatchesController#show as TURBO_STREAM
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.4ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering matches/show.html.erb within layouts/application
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:8
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 9]]
+  ↳ app/views/matches/show.html.erb:10
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/matches/show.html.erb:17
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/views/matches/show.html.erb:19
+  Rendered matches/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 4571)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 1003)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 46.2ms | Allocations: 13002)
+Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 2.4ms | Allocations: 15339)
+
+
