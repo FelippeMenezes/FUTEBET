@@ -25,10 +25,6 @@ Rails.application.routes.draw do
   resources :teams do
     member do
       patch 'update_players', to: 'teams#update_players'
-    end
-  end
-  resources :teams do
-    member do
       patch 'buy_players'
       patch 'sell_players'
     end
