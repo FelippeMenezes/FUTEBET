@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left {
+    width: 35%;
+    background-color: transparentize($color: #ffffff80, $amount: 0);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .right {
+    background-color: transparentize($color: #ffffff80, $amount: 0);
+    width: 40%;
+    overflow-x: auto;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .scrollable {
+    max-height: 400px; 
+    overflow-y: auto;
+  }

@@ -1,25 +1,40 @@
 <h1>Teams#show</h1>
 <p>Find me in app/views/teams/show.html.erb</p>
 
-<h1><%= @team.name %></h1>
-<ul>
-  <% @team.players.each do |player| %>
-    <li><%= player.name %> - <%= player.position %> - <%= player.skill_level %></li>
-  <% end %>
-</ul>
-
-<%= form_with(model: @team, url: update_players_team_path(@team), method: :patch) do |form| %>
-  <h2> Jogadores Disponíveis no Mercado </h2>
-  <ul>
-    <% Player.all.reject { |player| @team.players.include?(player) }.each do |player| %>
-      <li>
-        <%= check_box_tag "team[player_ids][]", player.id, false %>
-        <%= player.name %> - <%= player.position %> - <%= player.skill_level %>
-      </li>
+<div class="container">
+  <div class="left">
+    <%= form_with(model: @team, url: sell_players_team_path(@team), method: :patch) do |form| %>
+      <h1><%= @team.name %></h1>
+      <div class="scrollable">
+        <ul>
+          <% @team.players.each do |player| %>
+            <li>
+              <%= check_box_tag "team[player_ids][]", player.id, false %>
+              <%= player.name %> - <%= player.position %> - <%= player.skill_level %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= form.submit "Vender Jogadores" %>
     <% end %>
-  </ul>
-  <%= form.submit "Adicionar Jogadores" %>
-<% end %>
+  </div>
+  <div class="right">
+    <%= form_with(model: @team, url: buy_players_team_path(@team), method: :patch) do |form| %>
+      <h2>Jogadores à venda</h2>
+      <div class="scrollable">
+        <ul>
+          <% Player.all.reject { |player| @team.players.include?(player) }.each do |player| %>
+            <li>
+              <%= check_box_tag "team[player_ids][]", player.id, false %>
+              <%= player.name %> - <%= player.position %> - <%= player.skill_level %> - <%= player.team.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= form.submit "Comprar Jogadores" %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Matches', matches_index_path %>
 

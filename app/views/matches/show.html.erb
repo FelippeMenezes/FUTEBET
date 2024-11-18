@@ -12,7 +12,12 @@
             <% end %>
         </ul>
     </div>
-    <div><p>Score: <%= @match.home_score %> X Score: <%= @match.away_score %></p></div>
+    <div>
+        <p>Score: <%= @match.home_score %> X Score: <%= @match.away_score %></p>
+        <div class="match-button">
+        <%= button_to 'Começar partida', simulate_match_path(@match), method: :post, class: 'btn btn-primary' %>
+        </div>
+    </div>
     <div class="away-team">
         <%= @match.away_team.name %>
                 <ul>
@@ -22,9 +27,5 @@
         </ul>
     </div>
 </div>
-<div class="match-button">
-    <%= button_to 'Começar partida', simulate_match_path(@match), method: :post, class: 'btn btn-primary' %>
-</div>
 <%= link_to 'Voltar', teams_path %>
-
 <%= image_tag 'match_show.jpeg', class: 'match-show' %>

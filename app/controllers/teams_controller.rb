@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
   def update
   end
 
-  def update_players
+  def buy_players
     @team = Team.find(params[:id])
     if params[:team] && params[:team][:player_ids]
       @team.player_ids = (@team.player_ids + params[:team][:player_ids]).uniq
@@ -36,6 +36,22 @@ class TeamsController < ApplicationController
       redirect_to @team, notice: 'Jogadores atualizados com sucesso.'
     else
       render :show, alert: 'Erro ao atualizar jogadores.'
+    end
+  end
+
+  def sell_players
+    @team = Team.find(params[:id])
+    player_ids = params[:team] ? params[:team][:player_ids] : nil
+
+    if player_ids.present?
+      player_ids.each do |player_id|
+        player = Player.find(player_id)
+        random_team = Team.where.not(id: @team.id).sample
+        player.update(team: random_team)
+      end
+      redirect_to @team, notice: 'Jogadores vendidos com sucesso.'
+    else
+      redirect_to @team, alert: 'Nenhum jogador selecionado.'
     end
   end
 

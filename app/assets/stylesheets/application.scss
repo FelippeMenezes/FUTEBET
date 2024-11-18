@@ -10,6 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/teams/teams_new";
+@import "pages/teams/teams_show";
 
 .create-team {
     position: absolute;
@@ -23,12 +25,13 @@
   }
 
 .teams {
-    background-color: white;
+    background-color: transparentize($color: #ffffff80, $amount: 0);
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     max-width: 25%;
+    height: 175px;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
@@ -46,7 +49,7 @@
 }
 
 .match-box {
-    background-color: white;
+    background-color: transparentize($color: #ffffff80, $amount: 0);
     display: flex;
     justify-content: center;
     align-items: center;

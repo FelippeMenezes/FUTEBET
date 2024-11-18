@@ -1,0 +1,35 @@
+.team-new {
+  background-color: transparentize($color: #ffffff80, $amount: 0);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  max-width: 25%;
+  height: 175px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  
+    h1 {
+      color: #333; // Cor do título
+      font-size: 24px; // Tamanho da fonte
+    }
+  
+    .field {
+      margin-bottom: 15px; // Espaçamento entre os campos
+      color: black;
+    }
+  
+    .actions {
+      margin-top: 20px; // Espaçamento acima do botão
+    }
+  
+    .btn-primary {
+      background-color: #007bff; // Cor do botão
+      color: white; // Cor do texto do botão
+      padding: 10px 15px; // Espaçamento interno do botão
+      border: none; // Sem borda
+      border-radius: 5px; // Bordas arredondadas
+      cursor: pointer; // Cursor de ponteiro ao passar o mouse
+    }
+  }

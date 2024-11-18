@@ -1,26 +1,30 @@
-<h1>Criar Novo Time</h1>
+<div class="team-new">
+  <h1>Criar Novo Time</h1>
 
-<%= form_with(model: @team, local: true) do |form| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "erro") %> proibiu este time de ser salvo:</h2>
+  <%= form_with(model: @team, local: true) do |form| %>
+    <% if @team.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@team.errors.count, "erro") %> proibiu este time de ser salvo:</h2>
 
-      <ul>
-        <% @team.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @team.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Salvar', class: 'btn btn-primary' %>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Salvar' %>
-  </div>
-<% end %>
+<%= image_tag 'create_team.jpeg', class: 'create-team' %>
 
 <%= link_to 'Voltar', teams_path %>

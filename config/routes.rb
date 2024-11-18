@@ -27,6 +27,12 @@ Rails.application.routes.draw do
       patch 'update_players', to: 'teams#update_players'
     end
   end
+  resources :teams do
+    member do
+      patch 'buy_players'
+      patch 'sell_players'
+    end
+  end
   resources :matches, only: [:index, :create, :show]
   resources :matches do
     post 'simulate', on: :member
