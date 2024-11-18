@@ -29,4 +29,14 @@
         background-size: cover;
         z-index: -1;
     }
+
+    .btn-primary {
+        background-color: #007bff; // Cor do botão
+        color: white; // Cor do texto do botão
+        padding: 10px 15px; // Espaçamento interno do botão
+        border: none; // Sem borda
+        border-radius: 5px; // Bordas arredondadas
+        cursor: pointer; // Cursor de ponteiro ao passar o mouse
+        margin-top: 10px;
+      }
 }

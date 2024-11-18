@@ -14,11 +14,6 @@ Rails.application.routes.draw do
   get 'players/create'
   get 'players/update'
   get 'players/delete'
-  get 'teams/index'
-  get 'teams/show'
-  get 'teams/create'
-  get 'teams/update'
-  get 'teams/delete'
   devise_for :users
   resources :teams
   root to: "pages#home"

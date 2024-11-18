@@ -1,33 +1,32 @@
 <h1>Matches#index</h1>
 <p>Find me in app/views/matches/index.html.erb</p>
 
-<div style="flex: 1; padding: 10px;">
-  <h2>Times criados pelo sistema</h2>
-  <div style="display: flex; flex-wrap: wrap;">
+<div>
+  <h2>Crie a sua partida</h2>
+  <div class="match-index-box">
     <% if @teams.present? %>
       <%= form_with url: matches_path, method: :post do %>
-        <div>
-          <label for="home_team">Selecione o time criado pelo usuário (Home Team):</label>
-          <select name="home_team_id" id="home_team">
+        <div class="form-group">
+          <label for="home_team" class="form-label">Selecione o seu time:</label>
+          <select name="home_team_id" id="home_team" class="btn btn-primary form-select">
             <% @teams.select { |team| team.created_by_user? }.each do |team| %>
               <option value="<%= team.id %>"><%= team.name %></option>
             <% end %>
           </select>
-        </div>
-        <div>
-          <label for="away_team">Selecione o time criado pelo sistema (Away Team):</label>
-          <select name="away_team_id" id="away_team">
+          <label for="away_team" class="form-label">Selecione o time adversário:</label>
+          <select name="away_team_id" id="away_team" class='btn btn-primary form-select'>
             <% @teams.reject { |team| team.created_by_user? }.each do |team| %>
               <option value="<%= team.id %>"><%= team.name %></option>
             <% end %>
           </select>
         </div>
         <div>
-          <%= submit_tag "Criar Partida" %>
+          <%= link_to 'Voltar', teams_path, class: 'btn btn-primary' %>
+          <%= submit_tag "Criar Partida", class: 'btn btn-primary' %>
         </div>
       <% end %>
     <% else %>
-      <div style="flex: 1 0 100%; padding: 10px; box-sizing: border-box;">
+      <div>
         Nenhum time disponível.
       </div>
     <% end %>

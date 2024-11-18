@@ -5,10 +5,19 @@
     margin-bottom: 20px;
     margin-left: 20px;
     max-width: 25%;
-    height: 175px;
+    height: 225px;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+
+    .btn-primary {
+        background-color: #007bff; // Cor do botão
+        color: white; // Cor do texto do botão
+        padding: 10px 15px; // Espaçamento interno do botão
+        border: none; // Sem borda
+        border-radius: 5px; // Bordas arredondadas
+        cursor: pointer; 
+    }
 
     .index-team {
         position: absolute;

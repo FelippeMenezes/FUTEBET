@@ -15,7 +15,7 @@
           <% end %>
         </ul>
       </div>
-      <%= form.submit "Vender Jogadores" %>
+      <%= form.submit "Vender Jogadores", class: 'btn btn-primary' %>
     <% end %>
   </div>
   <div class="right">
@@ -31,14 +31,16 @@
           <% end %>
         </ul>
       </div>
-      <%= form.submit "Comprar Jogadores" %>
+      <%= form.submit "Comprar Jogadores", class: 'btn btn-primary' %>
     <% end %>
   </div>
   <%= image_tag 'team_show.jpeg', class: 'team-show' %>
 </div>
 
-<%= link_to 'Matches', matches_index_path %>
+<%= link_to 'Voltar', teams_path, class: 'btn btn-primary' %>
 
-<%= link_to 'Voltar', teams_path %>
+<%= link_to 'Matches', matches_index_path, class: 'btn btn-primary' %>
+
+
 
 
