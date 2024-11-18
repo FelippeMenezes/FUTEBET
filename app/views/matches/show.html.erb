@@ -14,8 +14,11 @@
     </div>
     <div>
         <p>Score: <%= @match.home_score %> X Score: <%= @match.away_score %></p>
-        <div class="match-button">
+        <div>
         <%= button_to 'Começar partida', simulate_match_path(@match), method: :post, class: 'btn btn-primary' %>
+        </div>
+        <div>
+        <%= link_to 'Voltar', teams_path %>
         </div>
     </div>
     <div class="away-team">
@@ -26,6 +29,5 @@
             <% end %>
         </ul>
     </div>
+    <%= image_tag 'match_show.jpeg', class: 'match-show' %>
 </div>
-<%= link_to 'Voltar', teams_path %>
-<%= image_tag 'match_show.jpeg', class: 'match-show' %>
